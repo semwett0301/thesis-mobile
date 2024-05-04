@@ -1,20 +1,29 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Provider } from "@ant-design/react-native";
+import ruRU from "@ant-design/react-native/lib/locale-provider/ru_RU";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    backgroundColor: "#fff",
-    flex: 1,
-    justifyContent: "center",
-  },
-});
+import { REQUEST_PAGE_TITLE, RequestPage } from "./pages/request";
+import { PAGES } from "./shared/router/pages";
+import { theme } from "./shared/theme/theme";
+import { Header } from "./shared/ui";
 
-export const App = () => {
+const { Navigator, Screen } = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider theme={theme} locale={ruRU}>
+      <NavigationContainer>
+        <Navigator
+          screenOptions={{
+            header: () => <Header title={REQUEST_PAGE_TITLE} />,
+          }}
+        >
+          <Screen name={PAGES.REQUEST} component={RequestPage} />
+        </Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
+
+export default App;

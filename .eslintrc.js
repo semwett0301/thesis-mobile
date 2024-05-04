@@ -26,11 +26,9 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/first": "error",
-    "no-restricted-syntax": ["error", {
-      "selector": "ExportDefaultDeclaration",
-      "message": "Prefer named exports"
-    }],
     "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unstable-nested-components": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/function-component-definition": [
       2,
@@ -43,7 +41,6 @@ module.exports = {
     "import/no-duplicates": "error",
     "sort-keys-fix/sort-keys-fix": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
-    "func-style": ["error", "expression"],
     "react/react-in-jsx-scope": "off",
     "react/style-prop-object": "off",
     "prettier/prettier": [
