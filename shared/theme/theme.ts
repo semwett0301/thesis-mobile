@@ -30,9 +30,9 @@ export const theme = {
 
   brand_warning: "#f4333c",
 
-  button_font_size: 18,
+  button_font_size: 17,
 
-  button_font_size_sm: 12,
+  button_font_size_sm: 13,
 
   button_height: 47,
 

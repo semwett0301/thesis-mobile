@@ -29,6 +29,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-unstable-nested-components": "off",
+    "global-require": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/function-component-definition": [
       2,

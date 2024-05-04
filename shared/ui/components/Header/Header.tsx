@@ -3,6 +3,7 @@ import { memo } from "react";
 import { View } from "react-native";
 import { Text } from "react-native-elements";
 
+import { BackIcon } from "../../atoms";
 import { styles } from "./styles";
 
 interface Props {
@@ -12,10 +13,13 @@ interface Props {
 const HeaderNonMemo = ({ title }: Props) => {
   return (
     <Flex style={styles.wrapper} justify="between" align="center">
-      <View style={styles.leftSide} />
+      <View style={styles.leftSide}>
+        <BackIcon />
+      </View>
       <Text style={styles.headerText}>{title}</Text>
       <View style={styles.rightSide}>
         <Button
+          size="small"
           type="ghost"
           styles={{
             ghostRaw: {

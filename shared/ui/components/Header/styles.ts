@@ -1,17 +1,19 @@
 import Constants from "expo-constants";
 import { StyleSheet } from "react-native";
 
-import { theme } from "../../theme/theme";
+import { theme } from "../../../theme/theme";
 
 export const styles = StyleSheet.create({
   headerText: {
     color: theme.color_text_base,
+    fontFamily: "Helvetica",
+    fontSize: 17,
   },
   leftSide: {
-    flex: 0,
+    width: 58,
   },
   rightSide: {
-    flex: 0.3,
+    width: 58,
   },
   wrapper: {
     backgroundColor: theme.fill_primary,
