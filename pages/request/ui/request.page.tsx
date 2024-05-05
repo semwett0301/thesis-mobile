@@ -1,11 +1,11 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
 import { Text } from "react-native-elements";
+import { PageLayout } from "shared/ui/layouts";
 
 export const RequestPage = () => {
   return (
-    <SafeAreaView>
+    <PageLayout>
       <Text>ABC</Text>
-    </SafeAreaView>
+    </PageLayout>
   );
 };

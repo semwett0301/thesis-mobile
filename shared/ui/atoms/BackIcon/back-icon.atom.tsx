@@ -1,10 +1,10 @@
 import { Button } from "@ant-design/react-native";
+import { ButtonProps } from "@ant-design/react-native/es/button";
 import React from "react";
 import { Icon } from "react-native-elements";
+import { theme } from "shared/theme";
 
-import { theme } from "../../../theme/theme";
-
-export const BackIcon = () => {
+export const BackIcon = (props: ButtonProps) => {
   return (
     <Button
       type="ghost"
@@ -13,12 +13,13 @@ export const BackIcon = () => {
           borderWidth: 0,
         },
       }}
+      {...props}
     >
       <Icon
         size={24}
         name="left"
         type="antdesign"
-        color={theme.color_text_base}
+        color={theme.color_text_base_inverse}
       />
     </Button>
   );

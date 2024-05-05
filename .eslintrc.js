@@ -7,9 +7,20 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   settings: {
     "import/resolver": {
+      node: {
+        path: ".",
+      },
       typescript: {
+        project: "./tsconfig.json",
         alwaysTryTypes: true,
       },
+      alias: [
+        ["shared", "./shared"],
+        ["pages", "./pages"],
+        ["features", "./features"],
+        ["widgets", "./widgets"],
+        ["entities", "./entities"],
+      ],
     },
   },
   plugins: [
@@ -29,6 +40,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-unstable-nested-components": "off",
+    "react/require-default-props": "off",
     "global-require": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/function-component-definition": [
@@ -50,5 +62,6 @@ module.exports = {
         endOfLine: "auto",
       },
     ],
+    "@conarti/feature-sliced/absolute-relative": "off"
   },
 };

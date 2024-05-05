@@ -8,6 +8,8 @@ export const theme = {
 
   actionsheet_item_height: 50,
 
+  background_color: "#FAFBFC",
+
   border_color_base: "#dddddd",
 
   border_width_lg: 2,
@@ -50,8 +52,8 @@ export const theme = {
 
   color_link: brandPrimary,
 
-  color_text_base: "#ffffff",
-  color_text_base_inverse: "#000000",
+  color_text_base: "#000000",
+  color_text_base_inverse: "#ffffff",
 
   color_text_caption: "#888888",
 
@@ -130,6 +132,8 @@ export const theme = {
   list_item_height_sm: 35,
 
   list_title_height: 30,
+
+  main_font: "Helvetica",
 
   modal_button_font_size: 18,
 

@@ -1,1 +1,1 @@
-export * from "./BackIcon";
+export * from "./back-icon.atom";
