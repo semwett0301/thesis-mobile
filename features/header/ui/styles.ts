@@ -1,6 +1,7 @@
 import Constants from "expo-constants";
 import { StyleSheet } from "react-native";
-import { theme } from "shared/theme";
+
+import { theme } from "../../../shared/theme";
 
 export const styles = StyleSheet.create({
   headerText: {

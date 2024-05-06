@@ -2,10 +2,10 @@ import { Button, Flex, Popover } from "@ant-design/react-native";
 import { memo, useMemo } from "react";
 import { View } from "react-native";
 import { Text } from "react-native-elements";
-import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
-import { PAGES } from "shared/router/types/pages";
 
-import { AccountIcon, BackIcon, CustomText } from "../../atoms";
+import { useAppNavigation } from "../../../shared/router/hooks/useAppNavigation";
+import { PAGES } from "../../../shared/router/types/pages";
+import { AccountIcon, BackIcon, CustomText } from "../../../shared/ui/atoms";
 import { styles } from "./styles";
 
 interface Props {

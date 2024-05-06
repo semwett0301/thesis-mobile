@@ -8,6 +8,7 @@ module.exports = {
   settings: {
     "import/resolver": {
       node: {
+        moduleDirectory: ["node_modules", "."],
         path: ".",
       },
       typescript: {
@@ -62,6 +63,6 @@ module.exports = {
         endOfLine: "auto",
       },
     ],
-    "@conarti/feature-sliced/absolute-relative": "off"
+    "@conarti/feature-sliced/absolute-relative": "off",
   },
 };

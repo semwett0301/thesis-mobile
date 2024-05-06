@@ -3,13 +3,13 @@ import ruRU from "@ant-design/react-native/lib/locale-provider/ru_RU";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
+import { Header } from "features/header";
 import { LOGIN_PAGE_TITLE, LoginPage } from "pages/login";
 import { REGISTER_PAGE_TITLE, RegisterPage } from "pages/register";
 import { REQUEST_PAGE_TITLE, RequestPage } from "pages/request";
 import { View } from "react-native";
 import { PAGES } from "shared/router/types/pages";
 import { theme } from "shared/theme/theme";
-import { Header } from "shared/ui";
 
 const { Navigator, Screen } = createStackNavigator();
 
