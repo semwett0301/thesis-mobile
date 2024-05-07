@@ -1,1 +1,1 @@
-export { MenuPopover } from "./ui/menu-popover.feature";
+export { MenuPopover } from "./ui";

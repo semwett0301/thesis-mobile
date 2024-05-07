@@ -4,7 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { UserRequest } from "shared/types/api/request/UserRequest";
 import { ErrorMessage } from "shared/ui/atoms";
 import { CustomInput } from "shared/ui/atoms/CustomInput";
-import Field from "shared/ui/layouts/Field/field.layout";
+import { Field } from "shared/ui/layouts";
 import { styles } from "widgets/auth-form/ui/AuthForm/styles";
 
 interface Props {

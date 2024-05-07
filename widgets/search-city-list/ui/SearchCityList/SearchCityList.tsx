@@ -5,9 +5,8 @@ import { theme } from "shared/theme";
 import { CityResponse } from "shared/types/api/response/CityResponse";
 import { CustomText } from "shared/ui/atoms";
 import { SearchInput } from "shared/ui/atoms/SearchInput";
-import Field from "shared/ui/layouts/Field/field.layout";
-
-import { styles } from "./styles";
+import { Field } from "shared/ui/layouts";
+import { styles } from "widgets/search-city-list/ui/SearchCityList/styles";
 
 type SearchListProps = {
   setCity: (city: CityResponse) => void;

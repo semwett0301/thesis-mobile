@@ -1,1 +1,1 @@
-export * from "./custom-input.atom";
+export * from "./CustomInput";

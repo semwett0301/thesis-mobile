@@ -1,1 +1,1 @@
-export { CitySearchPage } from "./ui";
+export { CitySearch } from "./ui";

@@ -10,11 +10,10 @@ import { CityResponse } from "shared/types/api/response/CityResponse";
 import { ErrorMessage, SelectItem } from "shared/ui/atoms";
 import { CustomInput } from "shared/ui/atoms/CustomInput";
 import { CustomTextarea } from "shared/ui/atoms/CustomTextarea";
-import Field from "shared/ui/layouts/Field/field.layout";
+import { Field } from "shared/ui/layouts";
 import { toRussianDate } from "shared/utils/date";
-
-import { config } from "../config";
-import { styles } from "./styles";
+import { config } from "widgets/route-generation-form/config";
+import { styles } from "widgets/route-generation-form/ui/RouteGenerationForm/styles";
 
 export const RouteGenerationForm = () => {
   const navigation = useAppNavigation();

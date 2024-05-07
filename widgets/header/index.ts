@@ -1,1 +1,1 @@
-export { Header } from "widgets/header/ui/header.widget";
+export { Header } from "./ui";

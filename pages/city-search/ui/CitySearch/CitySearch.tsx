@@ -5,7 +5,7 @@ import { PAGES } from "shared/router/types/pages";
 import { Page } from "shared/ui/layouts";
 import { SearchCityList } from "widgets/search-city-list";
 
-export const CitySearchPage = () => {
+export const CitySearch = () => {
   const {
     params: { setCity },
   } = useAppRoute<PAGES.CITY_SEARCH>();

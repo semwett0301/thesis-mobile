@@ -1,1 +1,1 @@
-export * from "./error-message.atom";
+export * from "./ErrorMessage";

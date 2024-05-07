@@ -1,1 +1,1 @@
-export { CitySearchPage } from "./city-search.page";
+export * from "./CitySearch";

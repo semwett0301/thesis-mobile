@@ -1,1 +1,1 @@
-export * from "./custom-text.atom";
+export * from "./NavigationText";

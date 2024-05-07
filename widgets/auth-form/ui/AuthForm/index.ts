@@ -1,1 +1,1 @@
-export { AuthForm } from "./auth-form.widget";
+export { AuthForm } from "./AuthForm";

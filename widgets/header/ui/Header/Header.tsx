@@ -1,11 +1,11 @@
 import { Button, Flex } from "@ant-design/react-native";
 import { MenuPopover } from "features/menu-popover";
 import { memo, useMemo } from "react";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
 import { AccountIcon, BackIcon, CustomText } from "shared/ui/atoms";
-import { styles } from "widgets/header/ui/styles";
+import { styles } from "widgets/header/ui/Header/styles";
 
 interface Props {
   title?: string;
@@ -28,9 +28,7 @@ const HeaderNonMemo = ({ title }: Props) => {
       </Button>
     ) : (
       <MenuPopover>
-        <TouchableOpacity>
-          <AccountIcon />
-        </TouchableOpacity>
+        <AccountIcon />
       </MenuPopover>
     );
   }, [navigation]);

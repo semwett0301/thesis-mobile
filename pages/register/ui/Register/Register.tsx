@@ -2,11 +2,10 @@ import { StackActions } from "@react-navigation/native";
 import React from "react";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
-import { Page } from "shared/ui/layouts";
-import { Center } from "shared/ui/layouts/Center";
+import { Center, Page } from "shared/ui/layouts";
 import { AuthForm } from "widgets/auth-form";
 
-export const LoginPage = () => {
+export const Register = () => {
   const navigation = useAppNavigation();
 
   return (
@@ -15,12 +14,12 @@ export const LoginPage = () => {
         <AuthForm
           submitButton={{
             onSubmit: () => {},
-            placeholder: "Вход",
+            placeholder: "Регистрация",
           }}
           additionalButton={{
             onPress: () =>
-              navigation.dispatch(StackActions.replace(PAGES.REGISTER)),
-            placeholder: "Регистрация",
+              navigation.dispatch(StackActions.replace(PAGES.LOGIN)),
+            placeholder: "Вход",
           }}
         />
       </Center>

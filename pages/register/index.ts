@@ -1,2 +1,2 @@
 export * from "./config";
-export { RegisterPage } from "./ui";
+export { Register } from "./ui";

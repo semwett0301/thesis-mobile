@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Field = ({
+export const Field = ({
   children,
   first = false,
   label,
@@ -70,5 +70,3 @@ const Field = ({
     </Flex>
   );
 };
-
-export default Field;

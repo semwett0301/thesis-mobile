@@ -3,10 +3,11 @@ import ruRU from "@ant-design/react-native/lib/locale-provider/ru_RU";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
-import { CitySearchPage } from "pages/city-search";
-import { LOGIN_PAGE_TITLE, LoginPage } from "pages/login";
-import { REGISTER_PAGE_TITLE, RegisterPage } from "pages/register";
-import { REQUEST_PAGE_TITLE, RequestPage } from "pages/request";
+import { CitySearch } from "pages/city-search";
+import { Login, LOGIN_PAGE_TITLE } from "pages/login";
+import { Register, REGISTER_PAGE_TITLE } from "pages/register";
+import { Request, REQUEST_PAGE_TITLE } from "pages/request";
+import { Routes, ROUTES_PAGE_TITLE } from "pages/routes";
 import { LogBox, View } from "react-native";
 import { PAGES, ParamList } from "shared/router/types/pages";
 import { theme } from "shared/theme/theme";
@@ -39,28 +40,35 @@ const App = () => {
         >
           <Screen
             name={PAGES.REQUEST}
-            component={RequestPage}
+            component={Request}
             options={{
               title: REQUEST_PAGE_TITLE,
             }}
           />
           <Screen
             name={PAGES.LOGIN}
-            component={LoginPage}
+            component={Login}
             options={{
               title: LOGIN_PAGE_TITLE,
             }}
           />
           <Screen
             name={PAGES.REGISTER}
-            component={RegisterPage}
+            component={Register}
             options={{
               title: REGISTER_PAGE_TITLE,
             }}
           />
           <Screen
+            name={PAGES.ROUTES}
+            component={Routes}
+            options={{
+              title: ROUTES_PAGE_TITLE,
+            }}
+          />
+          <Screen
             name={PAGES.CITY_SEARCH}
-            component={CitySearchPage}
+            component={CitySearch}
             options={({ route }) => ({
               title: route.params.title,
             })}

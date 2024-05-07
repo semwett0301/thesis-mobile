@@ -1,1 +1,1 @@
-export { RouteGenerationForm } from "./ui/route-generation-form.widget";
+export { RouteGenerationForm } from "./ui";

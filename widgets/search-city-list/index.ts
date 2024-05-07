@@ -1,1 +1,1 @@
-export { SearchCityList } from "./ui/search-city-list.widget";
+export { SearchCityList } from "./ui";

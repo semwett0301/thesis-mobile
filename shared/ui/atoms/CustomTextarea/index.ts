@@ -1,1 +1,1 @@
-export * from "./custom-textarea.atom";
+export * from "./CustomTextarea";
