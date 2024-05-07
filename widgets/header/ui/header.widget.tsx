@@ -1,7 +1,7 @@
-import { Button, Flex, Popover } from "@ant-design/react-native";
+import { Button, Flex } from "@ant-design/react-native";
+import { MenuPopover } from "features/menu-popover";
 import { memo, useMemo } from "react";
-import { View } from "react-native";
-import { Text } from "react-native-elements";
+import { TouchableOpacity, View } from "react-native";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
 import { AccountIcon, BackIcon, CustomText } from "shared/ui/atoms";
@@ -14,28 +14,12 @@ interface Props {
 const HeaderNonMemo = ({ title }: Props) => {
   const navigation = useAppNavigation();
 
-  const popoverOverlay = useMemo(
-    () => [
-      <Popover.Item key={1} value="1">
-        <Text style={styles.menuText}>Маршруты</Text>
-      </Popover.Item>,
-      <Popover.Item key={2} value="2">
-        <Text style={styles.menuText}>Выход</Text>
-      </Popover.Item>,
-    ],
-    [],
-  );
-
   const RightSide = useMemo(() => {
-    return true ? (
+    return false ? (
       <Button
         size="small"
         type="ghost"
-        styles={{
-          ghostRaw: {
-            borderWidth: 0,
-          },
-        }}
+        style={styles.ghostButton}
         onPress={() => {
           navigation.navigate(PAGES.LOGIN);
         }}
@@ -43,11 +27,13 @@ const HeaderNonMemo = ({ title }: Props) => {
         Войти
       </Button>
     ) : (
-      <Popover placement="auto" overlay={popoverOverlay}>
-        <AccountIcon />
-      </Popover>
+      <MenuPopover>
+        <TouchableOpacity>
+          <AccountIcon />
+        </TouchableOpacity>
+      </MenuPopover>
     );
-  }, [navigation, popoverOverlay]);
+  }, [navigation]);
 
   return (
     <Flex style={styles.wrapper} justify="between" align="center">

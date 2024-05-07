@@ -1,4 +1,5 @@
 import { Flex } from "@ant-design/react-native";
+import { FlexProps } from "@ant-design/react-native/es/flex/Flex";
 import React, { PropsWithChildren } from "react";
 import { StyleSheet, View } from "react-native";
 import { theme } from "shared/theme";
@@ -7,12 +8,17 @@ import { CustomText } from "shared/ui/atoms";
 interface Props {
   label?: string;
   last?: boolean;
-  onPress?: () => void;
+  first?: boolean;
 }
 
 const containerStyles = (last: boolean) => ({
   borderBottomColor: theme.separator_color_base,
   borderBottomWidth: last ? StyleSheet.hairlineWidth : 0,
+});
+
+const contentContainerStyles = (first: boolean) => ({
+  borderTopColor: theme.separator_color_base,
+  borderTopWidth: first ? StyleSheet.hairlineWidth : 0,
 });
 
 const styles = StyleSheet.create({
@@ -21,8 +27,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     backgroundColor: theme.fill_base,
-    borderColor: theme.separator_color_base,
-    borderTopWidth: StyleSheet.hairlineWidth,
     width: "100%",
   },
   label: {
@@ -39,10 +43,11 @@ const styles = StyleSheet.create({
 
 const Field = ({
   children,
+  first = false,
   label,
   last = false,
   onPress,
-}: PropsWithChildren<Props>) => {
+}: PropsWithChildren<FlexProps & Props>) => {
   return (
     <Flex
       style={{ ...styles.container, ...containerStyles(!last) }}
@@ -54,7 +59,14 @@ const Field = ({
           <CustomText style={styles.label}>{label}</CustomText>
         </View>
       )}
-      <View style={styles.contentContainer}>{children}</View>
+      <View
+        style={{
+          ...styles.contentContainer,
+          ...contentContainerStyles(!first),
+        }}
+      >
+        {children}
+      </View>
     </Flex>
   );
 };

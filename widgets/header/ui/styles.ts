@@ -3,18 +3,18 @@ import { StyleSheet } from "react-native";
 import { theme } from "shared/theme";
 
 export const styles = StyleSheet.create({
+  ghostButton: {
+    borderWidth: 0,
+  },
   headerText: {
     fontSize: 17,
   },
   leftSide: {
     width: 58,
   },
-  menuText: {
-    color: theme.color_text_base_inverse,
-    fontSize: 17,
-  },
   rightSide: {
-    width: 58,
+    maxWidth: 58,
+    paddingRight: 16,
   },
   wrapper: {
     backgroundColor: theme.fill_primary,
