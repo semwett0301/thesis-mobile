@@ -4,7 +4,7 @@ import { theme } from "shared/theme";
 
 export const CustomText = ({
   children,
-  inverse = true,
+  inverse = false,
   style,
 }: TextProps & {
   inverse?: boolean;

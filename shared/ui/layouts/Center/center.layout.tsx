@@ -1,7 +1,7 @@
 import { Flex } from "@ant-design/react-native";
 import React, { PropsWithChildren } from "react";
 
-export const CenterLayout = ({ children }: PropsWithChildren) => {
+export const Center = ({ children }: PropsWithChildren) => {
   return (
     <Flex
       align="center"

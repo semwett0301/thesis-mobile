@@ -3,6 +3,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { UserRequest } from "shared/types/api/request/UserRequest";
 import { ErrorMessage } from "shared/ui/atoms";
+import Field from "shared/ui/layouts/Field/field.layout";
 import { styles } from "widgets/auth-form/ui/AuthForm/styles";
 
 interface Props {
@@ -19,7 +20,7 @@ interface Props {
 export const AuthForm = ({ additionalButton, submitButton }: Props) => {
   const {
     control,
-    formState: { isValid },
+    formState: { isSubmitted, isValid },
     handleSubmit,
   } = useForm<UserRequest>({
     mode: "all",
@@ -28,52 +29,55 @@ export const AuthForm = ({ additionalButton, submitButton }: Props) => {
   return (
     <Flex direction="column" style={styles.wrapper}>
       <Flex direction="column" style={styles.inputWrapper}>
-        <Controller
-          control={control}
-          rules={{
-            required: "Поле обязательно",
-          }}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
-            <InputItem
-              styles={{
-                container: styles.input,
-              }}
-              editable
-              placeholder="Введите логин"
-              value={value}
-              onChange={onChange}
-              extra={error && <ErrorMessage>{error.message}</ErrorMessage>}
-            >
-              Логин
-            </InputItem>
-          )}
-          name="username"
-        />
-        <Controller
-          control={control}
-          rules={{
-            required: "Поле обязательно",
-          }}
-          render={({ field: { onChange, value }, fieldState: { error } }) => (
-            <InputItem
-              styles={{
-                container: styles.input,
-              }}
-              placeholder="Введите пароль"
-              type="password"
-              value={value}
-              onChange={onChange}
-              extra={error && <ErrorMessage>{error.message}</ErrorMessage>}
-            >
-              Пароль
-            </InputItem>
-          )}
-          name="password"
-        />
+        <Field>
+          <Controller
+            control={control}
+            rules={{
+              required: "Поле обязательно",
+            }}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <InputItem
+                styles={{
+                  container: styles.input,
+                }}
+                editable
+                placeholder="Введите логин"
+                value={value}
+                onChange={onChange}
+                extra={error && <ErrorMessage>{error.message}</ErrorMessage>}
+              >
+                Логин
+              </InputItem>
+            )}
+            name="username"
+          />
+          <Controller
+            control={control}
+            rules={{
+              required: "Поле обязательно",
+            }}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <InputItem
+                styles={{
+                  container: styles.input,
+                }}
+                placeholder="Введите пароль"
+                type="password"
+                value={value}
+                onChange={onChange}
+                extra={error && <ErrorMessage>{error.message}</ErrorMessage>}
+                last
+              >
+                Пароль
+              </InputItem>
+            )}
+            name="password"
+          />
+        </Field>
       </Flex>
       <Flex direction="column" style={styles.buttonWrapper}>
         <Button
-          disabled={!isValid}
+          disabled={!isValid && isSubmitted}
           style={styles.button}
           type="primary"
           onPress={handleSubmit(submitButton.onSubmit)}

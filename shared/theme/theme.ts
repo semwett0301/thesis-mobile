@@ -8,12 +8,8 @@ export const theme = {
 
   actionsheet_item_height: 50,
 
-  background_color: "#FAFBFC",
-
-  border_color_base: "#dddddd",
-
+  border_color_base: "transparent",
   border_width_lg: 2,
-
   border_width_md: 1,
 
   border_width_sm: 0.5,
@@ -47,18 +43,17 @@ export const theme = {
   checkbox_fill: "#1890ff",
 
   checkbox_fill_disabled: "#f5f5f5",
-
   color_icon_base: "#cccccc",
 
   color_link: brandPrimary,
 
-  color_text_base: "#000000",
+  color_text_base: "#333333",
+
   color_text_base_inverse: "#ffffff",
 
   color_text_caption: "#888888",
 
   color_text_disabled: "#bbbbbb",
-
   color_text_paragraph: "#333333",
 
   color_text_placeholder: "#bbbbbb",
@@ -67,25 +62,27 @@ export const theme = {
 
   ease_in_out_quint: "cubic_bezier(0.86, 0, 0.07, 1)",
 
+  field_color_base: "#999999",
+
   fill_base: "#ffffff",
-  fill_body: "#f5f5f9",
+
+  fill_body: "#FAFBFC",
 
   fill_disabled: "#dddddd",
-
   fill_grey: "#f7f7f7",
 
   fill_mask: "rgba(0, 0, 0, .4)",
 
   fill_primary: "#108EE9",
+
   fill_tap: "#dddddd",
 
-  font_size_base: 14,
-
+  font_size_base: 15,
   font_size_caption: 16,
 
   font_size_caption_sm: 12,
 
-  font_size_heading: 17,
+  font_size_heading: 15,
 
   font_size_icontext: 10,
 
@@ -95,9 +92,9 @@ export const theme = {
 
   ghost_button_fill_tap: `${brandPrimary}99`,
 
-  h_spacing_lg: 15,
+  h_spacing_lg: 12,
 
-  h_spacing_md: 8,
+  h_spacing_md: 12,
 
   h_spacing_sm: 5,
 
@@ -109,13 +106,13 @@ export const theme = {
 
   icon_size_xs: 18,
 
-  icon_size_xxs: 15,
+  icon_size_xxs: 0,
 
   input_color_icon: "#cccccc",
 
   input_color_icon_tap: brandPrimary,
 
-  input_font_size: 17,
+  input_font_size: 15,
 
   input_label_width: 17,
 
@@ -165,13 +162,15 @@ export const theme = {
 
   radius_xs: 2,
 
-  search_bar_fill: "#efeff4",
+  search_bar_fill: "#FFFFFF",
+
+  search_bar_fill_input: "#f5f5f5",
 
   search_bar_font_size: 15,
 
   search_bar_height: 44,
 
-  search_bar_input_height: 28,
+  search_bar_input_height: 36,
 
   search_color_icon: "#bbbbbb",
 
@@ -180,6 +179,8 @@ export const theme = {
   segmented_control_fill_tap: `${brandPrimary}10`,
 
   segmented_control_height: 27,
+
+  separator_color_base: "#EEEEEE",
 
   switch_checked_disabled: "#1890ff66",
 

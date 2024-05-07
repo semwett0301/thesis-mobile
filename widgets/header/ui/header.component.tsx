@@ -2,11 +2,10 @@ import { Button, Flex, Popover } from "@ant-design/react-native";
 import { memo, useMemo } from "react";
 import { View } from "react-native";
 import { Text } from "react-native-elements";
-
-import { useAppNavigation } from "../../../shared/router/hooks/useAppNavigation";
-import { PAGES } from "../../../shared/router/types/pages";
-import { AccountIcon, BackIcon, CustomText } from "../../../shared/ui/atoms";
-import { styles } from "./styles";
+import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
+import { PAGES } from "shared/router/types/pages";
+import { AccountIcon, BackIcon, CustomText } from "shared/ui/atoms";
+import { styles } from "widgets/header/ui/styles";
 
 interface Props {
   title?: string;
@@ -61,7 +60,9 @@ const HeaderNonMemo = ({ title }: Props) => {
           />
         )}
       </View>
-      <CustomText style={styles.headerText}>{title}</CustomText>
+      <CustomText inverse style={styles.headerText}>
+        {title}
+      </CustomText>
       <View style={styles.rightSide}>
         {!navigation.canGoBack() && RightSide}
       </View>

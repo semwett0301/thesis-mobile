@@ -2,16 +2,16 @@ import { StackActions } from "@react-navigation/native";
 import React from "react";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
-import { PageLayout } from "shared/ui/layouts";
-import { CenterLayout } from "shared/ui/layouts/CenterLayout";
+import { Page } from "shared/ui/layouts";
+import { Center } from "shared/ui/layouts/Center";
 import { AuthForm } from "widgets/auth-form";
 
 export const LoginPage = () => {
   const navigation = useAppNavigation();
 
   return (
-    <PageLayout>
-      <CenterLayout>
+    <Page>
+      <Center>
         <AuthForm
           submitButton={{
             onSubmit: () => {},
@@ -23,7 +23,7 @@ export const LoginPage = () => {
             placeholder: "Регистрация",
           }}
         />
-      </CenterLayout>
-    </PageLayout>
+      </Center>
+    </Page>
   );
 };

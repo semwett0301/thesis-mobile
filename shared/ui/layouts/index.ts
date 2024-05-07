@@ -1,2 +1,2 @@
-export * from "./CenterLayout";
-export * from "./PageLayout";
+export * from "./Center";
+export * from "./Page";
