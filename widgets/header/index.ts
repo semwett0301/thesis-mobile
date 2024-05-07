@@ -1,1 +1,1 @@
-export { Header } from "widgets/header/ui/header.component";
+export { Header } from "widgets/header/ui/header.widget";

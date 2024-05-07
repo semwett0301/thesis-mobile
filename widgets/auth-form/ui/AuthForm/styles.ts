@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
   input: {
-    height: 50,
     width: "100%",
   },
   inputWrapper: {

@@ -1,17 +1,13 @@
 import { Flex } from "@ant-design/react-native";
 import React, { PropsWithChildren } from "react";
 import {
-  GestureResponderEvent,
   StyleSheet,
   TouchableOpacity,
+  TouchableOpacityProps,
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { theme } from "shared/theme";
 import { CustomText } from "shared/ui/atoms/NavigationText";
-
-interface Props {
-  onPress?: (e: GestureResponderEvent) => void;
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -25,9 +21,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export const SelectItem = ({ children, onPress }: PropsWithChildren<Props>) => {
+export const SelectItem = ({
+  children,
+  ...props
+}: PropsWithChildren<TouchableOpacityProps>) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity {...props}>
       <Flex style={styles.container} justify="center" align="center">
         <Flex style={styles.content}>
           <CustomText>{children}</CustomText>

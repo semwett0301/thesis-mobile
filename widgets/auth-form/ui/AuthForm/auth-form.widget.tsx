@@ -1,8 +1,9 @@
-import { Button, Flex, InputItem } from "@ant-design/react-native";
+import { Button, Flex } from "@ant-design/react-native";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { UserRequest } from "shared/types/api/request/UserRequest";
 import { ErrorMessage } from "shared/ui/atoms";
+import { CustomInput } from "shared/ui/atoms/CustomInput";
 import Field from "shared/ui/layouts/Field/field.layout";
 import { styles } from "widgets/auth-form/ui/AuthForm/styles";
 
@@ -36,18 +37,17 @@ export const AuthForm = ({ additionalButton, submitButton }: Props) => {
               required: "Поле обязательно",
             }}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
-              <InputItem
+              <CustomInput
                 styles={{
                   container: styles.input,
                 }}
-                editable
                 placeholder="Введите логин"
                 value={value}
                 onChange={onChange}
                 extra={error && <ErrorMessage>{error.message}</ErrorMessage>}
               >
                 Логин
-              </InputItem>
+              </CustomInput>
             )}
             name="username"
           />
@@ -57,7 +57,7 @@ export const AuthForm = ({ additionalButton, submitButton }: Props) => {
               required: "Поле обязательно",
             }}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
-              <InputItem
+              <CustomInput
                 styles={{
                   container: styles.input,
                 }}
@@ -69,7 +69,7 @@ export const AuthForm = ({ additionalButton, submitButton }: Props) => {
                 last
               >
                 Пароль
-              </InputItem>
+              </CustomInput>
             )}
             name="password"
           />
