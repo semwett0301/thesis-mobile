@@ -1,10 +1,11 @@
-import { Field, Page } from "shared/ui/layouts";
+import { RecentlyRoutes, SavedRoutes } from "features/route-history";
+import { Page } from "shared/ui/layouts";
 
 export const Routes = () => {
   return (
     <Page>
-      <Field label="Недавние" />
-      <Field label="Сохраненные" />
+      <RecentlyRoutes />
+      <SavedRoutes />
     </Page>
   );
 };

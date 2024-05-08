@@ -5,7 +5,7 @@ import { theme } from "shared/theme";
 import { CityResponse } from "shared/types/api/response/CityResponse";
 import { CustomText } from "shared/ui/atoms";
 import { SearchInput } from "shared/ui/atoms/SearchInput";
-import { Field } from "shared/ui/layouts";
+import { Section } from "shared/ui/layouts";
 import { styles } from "widgets/search-city-list/ui/SearchCityList/styles";
 
 type SearchListProps = {
@@ -27,7 +27,7 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
         }}
         allLoadedText=""
         renderItem={(item: CityResponse) => (
-          <Field>
+          <Section>
             <TouchableOpacity
               onPress={() => {
                 setCity(item);
@@ -49,7 +49,7 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
                 </CustomText>
               </Flex>
             </TouchableOpacity>
-          </Field>
+          </Section>
         )}
       />
     </View>

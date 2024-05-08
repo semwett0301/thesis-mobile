@@ -5,12 +5,12 @@ import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
-import { RouteGenerationRequest } from "shared/types/api/request/RouteGenerationRequest";
+import { RouteRequest } from "shared/types/api/request/RouteRequest";
 import { CityResponse } from "shared/types/api/response/CityResponse";
 import { ErrorMessage, SelectItem } from "shared/ui/atoms";
 import { CustomInput } from "shared/ui/atoms/CustomInput";
 import { CustomTextarea } from "shared/ui/atoms/CustomTextarea";
-import { Field } from "shared/ui/layouts";
+import { Section } from "shared/ui/layouts";
 import { toRussianDate } from "shared/utils/date";
 import { config } from "widgets/route-generation-form/config";
 import { styles } from "widgets/route-generation-form/ui/RouteGenerationForm/styles";
@@ -24,7 +24,7 @@ export const RouteGenerationForm = () => {
     // handleSubmit,
     setValue,
     watch,
-  } = useForm<Partial<RouteGenerationRequest>>({
+  } = useForm<Partial<RouteRequest>>({
     mode: "all",
   });
 
@@ -40,7 +40,7 @@ export const RouteGenerationForm = () => {
 
   return (
     <View>
-      <Field label="Отправление">
+      <Section label="Отправление">
         <Flex>
           <Controller
             rules={{
@@ -75,8 +75,8 @@ export const RouteGenerationForm = () => {
             control={control}
           />
         </Flex>
-      </Field>
-      <Field label="Даты поездки">
+      </Section>
+      <Section label="Даты поездки">
         <Flex>
           <Controller
             rules={{
@@ -123,8 +123,8 @@ export const RouteGenerationForm = () => {
             control={control}
           />
         </Flex>
-      </Field>
-      <Field label="Суммы">
+      </Section>
+      <Section label="Суммы">
         <Controller
           rules={{
             min: { message: "Мин. 5000", value: 5000 },
@@ -159,8 +159,8 @@ export const RouteGenerationForm = () => {
           name="accommodation_price"
           control={control}
         />
-      </Field>
-      <Field label="Общие пожелания" last={false}>
+      </Section>
+      <Section label="Общие пожелания" last={false}>
         <Controller
           render={({ field: { onChange, value } }) => (
             <CustomTextarea
@@ -172,7 +172,7 @@ export const RouteGenerationForm = () => {
           name="additional_information"
           control={control}
         />
-      </Field>
+      </Section>
       <View style={styles.buttonWrapper}>
         <Button disabled={!isValid} style={styles.button} type="primary">
           Сгенерировать

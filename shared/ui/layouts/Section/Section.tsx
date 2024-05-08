@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Field = ({
+export const Section = ({
   children,
   first = false,
   label,

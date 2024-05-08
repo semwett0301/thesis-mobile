@@ -1,7 +1,6 @@
 import { Button, Flex } from "@ant-design/react-native";
 import { MenuPopover } from "features/menu-popover";
 import { memo, useMemo } from "react";
-import { View } from "react-native";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
 import { AccountIcon, BackIcon, CustomText } from "shared/ui/atoms";
@@ -34,8 +33,8 @@ const HeaderNonMemo = ({ title }: Props) => {
   }, [navigation]);
 
   return (
-    <Flex style={styles.wrapper} justify="between" align="center">
-      <View style={styles.leftSide}>
+    <Flex style={styles.wrapper} align="center">
+      <Flex justify="start" style={styles.leftSide}>
         {navigation.canGoBack() && (
           <BackIcon
             onPress={() => {
@@ -43,13 +42,13 @@ const HeaderNonMemo = ({ title }: Props) => {
             }}
           />
         )}
-      </View>
+      </Flex>
       <CustomText inverse style={styles.headerText}>
         {title}
       </CustomText>
-      <View style={styles.rightSide}>
+      <Flex justify="end" style={styles.rightSide}>
         {!navigation.canGoBack() && RightSide}
-      </View>
+      </Flex>
     </Flex>
   );
 };

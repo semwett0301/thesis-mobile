@@ -4,7 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { UserRequest } from "shared/types/api/request/UserRequest";
 import { ErrorMessage } from "shared/ui/atoms";
 import { CustomInput } from "shared/ui/atoms/CustomInput";
-import { Field } from "shared/ui/layouts";
+import { Section } from "shared/ui/layouts";
 import { styles } from "widgets/auth-form/ui/AuthForm/styles";
 
 interface Props {
@@ -30,7 +30,7 @@ export const AuthForm = ({ additionalButton, submitButton }: Props) => {
   return (
     <Flex direction="column" style={styles.wrapper}>
       <Flex direction="column" style={styles.inputWrapper}>
-        <Field>
+        <Section>
           <Controller
             control={control}
             rules={{
@@ -73,7 +73,7 @@ export const AuthForm = ({ additionalButton, submitButton }: Props) => {
             )}
             name="password"
           />
-        </Field>
+        </Section>
       </Flex>
       <Flex direction="column" style={styles.buttonWrapper}>
         <Button

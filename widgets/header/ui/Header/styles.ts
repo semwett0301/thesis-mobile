@@ -7,13 +7,15 @@ export const styles = StyleSheet.create({
     borderWidth: 0,
   },
   headerText: {
+    flex: 1,
     fontSize: 17,
+    textAlign: "center",
   },
   leftSide: {
-    width: 58,
+    minWidth: 58,
   },
   rightSide: {
-    maxWidth: 58,
+    minWidth: 58,
     paddingRight: 16,
   },
   wrapper: {
