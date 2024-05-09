@@ -5,22 +5,27 @@ module.exports = {
     "airbnb-typescript-prettier",
   ],
   parser: "@typescript-eslint/parser",
+  ignorePatterns: [
+    "babel.config.js",
+    "metro.config.js",
+    "node_modules/*",
+    ".eslintrc.js",
+  ],
   settings: {
     "import/resolver": {
       node: {
-        moduleDirectory: ["node_modules", "."],
-        path: ".",
+        moduleDirectory: ["node_modules", "src/"],
       },
       typescript: {
         project: "./tsconfig.json",
         alwaysTryTypes: true,
       },
       alias: [
-        ["shared", "./shared"],
-        ["pages", "./pages"],
-        ["features", "./features"],
-        ["widgets", "./widgets"],
-        ["entities", "./entities"],
+        ["shared", "src/shared"],
+        ["pages", "src/pages"],
+        ["features", "src/features"],
+        ["widgets", "src/widgets"],
+        ["entities", "src/entities"],
       ],
     },
   },
@@ -34,6 +39,7 @@ module.exports = {
     "sort-destructure-keys",
   ],
   rules: {
+    "global-require": "off",
     "no-param-reassign": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
@@ -42,7 +48,7 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "react/no-unstable-nested-components": "off",
     "react/require-default-props": "off",
-    "global-require": "off",
+    "no-return-await": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/function-component-definition": [
       2,

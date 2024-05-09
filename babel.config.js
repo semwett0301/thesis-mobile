@@ -7,11 +7,11 @@ module.exports = function (api) {
         "module-resolver",
         {
           alias: {
-            shared: "./shared",
-            pages: "./pages",
-            features: "./features",
-            widgets: "./widgets",
-            entities: "./entities",
+            shared: "./src/shared",
+            pages: "./src/pages",
+            features: "./src/features",
+            widgets: "./src/widgets",
+            entities: "./src/entities",
           },
         },
       ],

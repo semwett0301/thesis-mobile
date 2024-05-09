@@ -2,13 +2,29 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "shared": ["./shared"],
-      "pages": ["./pages"],
-      "features": ["./features"],
-      "widgets": ["./widgets"],
-      "entities": ["./entities"]
+      "shared": [
+        "./shared"
+      ],
+      "pages": [
+        "./pages"
+      ],
+      "features": [
+        "./features"
+      ],
+      "widgets": [
+        "./widgets"
+      ],
+      "entities": [
+        "./src/entities"
+      ]
     }
   },
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "node_modules",
+  ]
 }
