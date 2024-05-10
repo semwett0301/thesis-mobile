@@ -40,7 +40,7 @@ export const SavedRoutes = () => {
   return (
     <Section label={config.savedName} first last>
       {routes.map((route) => (
-        <RouteHistoryCard key={route.id} route={route} />
+        <RouteHistoryCard key={route.id} data={route} />
       ))}
     </Section>
   );

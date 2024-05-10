@@ -1,1 +1,1 @@
-export * from "./MenuPopover";
+export { MenuPopover } from "./MenuPopover";

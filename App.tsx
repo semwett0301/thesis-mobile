@@ -2,7 +2,8 @@ import { Provider } from "@ant-design/react-native";
 import ruRU from "@ant-design/react-native/lib/locale-provider/ru_RU";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { AuthProvider, useAuth } from "entities/auth";
+import { AuthProvider } from "entities/auth";
+import { RouteProvider } from "entities/route";
 import { useFonts } from "expo-font";
 import { CitySearch } from "pages/city-search";
 import { Login, LOGIN_PAGE_TITLE } from "pages/login";
@@ -30,7 +31,7 @@ const App = () => {
     antoutline: require("./src/shared/assets/fonts/HelveticaNeue.ttf"),
   });
 
-  const { isAuth } = useAuth();
+  console.log("dsadas");
 
   if (!fontsLoaded) {
     return <View />;
@@ -39,52 +40,52 @@ const App = () => {
   return (
     <Provider theme={theme} locale={ruRU}>
       <AuthProvider>
-        <NavigationContainer ref={navigationRef}>
-          <Navigator
-            screenOptions={{
-              header: ({ options: { title } }) => <Header title={title} />,
-            }}
-          >
-            <Screen
-              name={PAGES.REQUEST}
-              component={Request}
-              options={{
-                title: REQUEST_PAGE_TITLE,
+        <RouteProvider>
+          <NavigationContainer ref={navigationRef}>
+            <Navigator
+              screenOptions={{
+                header: ({ options: { title } }) => <Header title={title} />,
               }}
-            />
-            <Screen
-              name={PAGES.CITY_SEARCH}
-              component={CitySearch}
-              options={({ route }) => ({
-                title: route.params.title,
-              })}
-            />
-            <Screen
-              name={PAGES.ROUTE_INFO}
-              component={RouteInfo}
-              options={{
-                title: ROUTE_INFO_TITLE,
-              }}
-            />
-            <Screen name={PAGES.ROUTE_POINT_INFO} component={RoutePointInfo} />
-            {!isAuth ? (
-              <>
-                <Screen
-                  name={PAGES.LOGIN}
-                  component={Login}
-                  options={{
-                    title: LOGIN_PAGE_TITLE,
-                  }}
-                />
-                <Screen
-                  name={PAGES.REGISTER}
-                  component={Register}
-                  options={{
-                    title: REGISTER_PAGE_TITLE,
-                  }}
-                />
-              </>
-            ) : (
+            >
+              <Screen
+                name={PAGES.REQUEST}
+                component={Request}
+                options={{
+                  title: REQUEST_PAGE_TITLE,
+                }}
+              />
+              <Screen
+                name={PAGES.CITY_SEARCH}
+                component={CitySearch}
+                options={({ route }) => ({
+                  title: route.params.title,
+                })}
+              />
+              <Screen
+                name={PAGES.ROUTE_INFO}
+                component={RouteInfo}
+                options={{
+                  title: ROUTE_INFO_TITLE,
+                }}
+              />
+              <Screen
+                name={PAGES.ROUTE_POINT_INFO}
+                component={RoutePointInfo}
+              />
+              <Screen
+                name={PAGES.LOGIN}
+                component={Login}
+                options={{
+                  title: LOGIN_PAGE_TITLE,
+                }}
+              />
+              <Screen
+                name={PAGES.REGISTER}
+                component={Register}
+                options={{
+                  title: REGISTER_PAGE_TITLE,
+                }}
+              />
               <Screen
                 name={PAGES.ROUTES}
                 component={Routes}
@@ -92,9 +93,9 @@ const App = () => {
                   title: ROUTES_PAGE_TITLE,
                 }}
               />
-            )}
-          </Navigator>
-        </NavigationContainer>
+            </Navigator>
+          </NavigationContainer>
+        </RouteProvider>
       </AuthProvider>
     </Provider>
   );

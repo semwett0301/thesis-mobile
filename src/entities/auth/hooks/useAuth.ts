@@ -1,4 +1,5 @@
-import { useCallback, useContext } from "react";
+import { useIsFocused } from "@react-navigation/core";
+import { useCallback, useContext, useEffect } from "react";
 import { AuthRequest } from "shared/types/api/request/AuthRequest";
 import {
   clearTokens,
@@ -6,11 +7,19 @@ import {
   setRefreshToken,
 } from "shared/utils/auth";
 
-import { postLogin, postLogout, postRegister } from "../api";
+import {
+  getMe,
+  postLogin,
+  postLogout,
+  postRefresh,
+  postRegister,
+} from "../api";
 import { AuthContext } from "../context";
 
 export const useAuth = () => {
-  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const { isAuth, isAuthLoaded, setIsAuth, setIsAuthLoaded } =
+    useContext(AuthContext);
+  const isFocused = useIsFocused();
 
   const login = useCallback(
     async (authLogin: AuthRequest) => {
@@ -45,6 +54,36 @@ export const useAuth = () => {
     await clearTokens();
     await postLogout();
   }, [setIsAuth]);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await getMe();
+        setIsAuth(true);
+      } catch {
+        try {
+          const {
+            data: { access, refresh },
+          } = await postRefresh();
+          await setAccessToken(access);
+          await setRefreshToken(refresh);
+          setIsAuth(true);
+        } catch {
+          await clearTokens();
+          setIsAuth(false);
+        }
+      }
+
+      setIsAuthLoaded(true);
+    };
+
+    if (isFocused && !isAuthLoaded) {
+      checkAuth();
+    }
+    return () => {
+      setIsAuthLoaded(false);
+    };
+  }, [isFocused]);
 
   return {
     isAuth,

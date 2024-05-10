@@ -1,4 +1,5 @@
 import { Flex } from "@ant-design/react-native";
+import { useAuth } from "entities/auth";
 import { styles } from "features/menu-popover/ui/MenuPopover/styles";
 import { PropsWithChildren, useState } from "react";
 import { Platform, TouchableOpacity, View } from "react-native";
@@ -7,8 +8,6 @@ import { Placement } from "react-native-popover-view/src/Types";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
 import { CustomText } from "shared/ui/atoms";
-
-import { useAuth } from "../../../../entities/auth";
 
 const arrowShift = Platform.select({
   android: -0.05,

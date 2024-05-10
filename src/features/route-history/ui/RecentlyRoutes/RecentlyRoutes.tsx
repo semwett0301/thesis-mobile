@@ -40,7 +40,7 @@ export const RecentlyRoutes = () => {
   return (
     <Section label={config.recentlyName} first last>
       {routes.map((route) => (
-        <RouteHistoryCard key={route.id} route={route} />
+        <RouteHistoryCard key={route.id} data={route} />
       ))}
     </Section>
   );

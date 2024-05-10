@@ -1,1 +1,1 @@
-export * from "./RecentlyRoutes";
+export { RecentlyRoutes } from "./RecentlyRoutes";

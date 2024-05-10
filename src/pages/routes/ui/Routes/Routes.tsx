@@ -1,11 +1,11 @@
+import { AuthChecker } from "entities/auth";
 import { RecentlyRoutes, SavedRoutes } from "features/route-history";
-import { Page } from "shared/ui/layouts";
 
 export const Routes = () => {
   return (
-    <Page>
+    <AuthChecker mode="auth">
       <RecentlyRoutes />
       <SavedRoutes />
-    </Page>
+    </AuthChecker>
   );
 };

@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 import { api } from "shared/api/api";
 import { AuthRequest } from "shared/types/api/request/AuthRequest";
+import { AuthResponse } from "shared/types/api/response/AuthResponse";
 
-import { AuthResponse } from "../../../shared/types/api/response/AuthResponse";
 import { baseAuthUrl } from "../config";
 
 export const getMe = async () => api.get<AuthResponse>(`${baseAuthUrl}/me`);

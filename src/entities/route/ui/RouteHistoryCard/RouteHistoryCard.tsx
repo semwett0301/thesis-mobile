@@ -7,17 +7,17 @@ import { toDay } from "shared/utils/date";
 import { styles } from "./styles";
 
 interface Props {
-  route: RouteResponse;
+  data: RouteResponse;
 }
 
-export const RouteHistoryCard = ({ route }: Props) => {
+export const RouteHistoryCard = ({ data }: Props) => {
   return (
     <Flex direction="column" align="start" style={styles.container}>
       <CustomText style={styles.dateText}>
-        {toDay(route.start_date)}-{toDay(route.end_date)}
+        {toDay(data.start_date)}-{toDay(data.end_date)}
       </CustomText>
       <CustomText style={styles.cityText}>
-        {route.start_city.title}-{route.end_city.title}
+        {data.start_city.title}-{data.end_city.title}
       </CustomText>
     </Flex>
   );

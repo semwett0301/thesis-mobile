@@ -1,1 +1,1 @@
-export * from "./SavedRoutes";
+export { SavedRoutes } from "./SavedRoutes";

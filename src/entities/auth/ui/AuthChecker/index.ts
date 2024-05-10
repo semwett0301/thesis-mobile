@@ -1,1 +1,1 @@
-export * from "./AuthChecker";
+export { AuthChecker } from "./AuthChecker";

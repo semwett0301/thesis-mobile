@@ -4,13 +4,16 @@ import { AuthContext } from "../../context";
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const [isAuth, setIsAuth] = useState<boolean>(false);
+  const [isAuthLoaded, setIsAuthLoaded] = useState<boolean>(false);
 
   const value = useMemo(
     () => ({
       isAuth,
+      isAuthLoaded,
       setIsAuth,
+      setIsAuthLoaded,
     }),
-    [isAuth],
+    [isAuth, isAuthLoaded],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

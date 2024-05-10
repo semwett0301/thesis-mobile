@@ -1,11 +1,10 @@
 import { StackActions } from "@react-navigation/native";
+import { AuthChecker, useAuth } from "entities/auth";
 import React from "react";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
-import { Center, Page } from "shared/ui/layouts";
+import { Center } from "shared/ui/layouts";
 import { AuthForm } from "widgets/auth-form";
-
-import { useAuth } from "../../../../entities/auth";
 
 export const Register = () => {
   const navigation = useAppNavigation();
@@ -13,7 +12,7 @@ export const Register = () => {
   const { register } = useAuth();
 
   return (
-    <Page>
+    <AuthChecker mode="not-auth">
       <Center>
         <AuthForm
           submitButton={{
@@ -27,6 +26,6 @@ export const Register = () => {
           }}
         />
       </Center>
-    </Page>
+    </AuthChecker>
   );
 };

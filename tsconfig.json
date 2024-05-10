@@ -3,6 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./src",
+    "jsx": "react-native",
+    "skipLibCheck": true,
     "paths": {
       "shared": [
         "./shared"
@@ -17,7 +19,7 @@
         "./widgets"
       ],
       "entities": [
-        "./src/entities"
+        "./entities"
       ]
     }
   },
