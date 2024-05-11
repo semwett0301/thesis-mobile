@@ -10,7 +10,7 @@ import { Login, LOGIN_PAGE_TITLE } from "pages/login";
 import { Register, REGISTER_PAGE_TITLE } from "pages/register";
 import { Request, REQUEST_PAGE_TITLE } from "pages/request";
 import { ROUTE_INFO_TITLE, RouteInfo } from "pages/route-info";
-import { RoutePointInfo } from "pages/route-point-info";
+import { ROUTE_POINT_INFO_TITLE, RoutePointInfo } from "pages/route-point-info";
 import { Routes, ROUTES_PAGE_TITLE } from "pages/routes";
 import { LogBox, View } from "react-native";
 import { PAGES, ParamList } from "shared/router/types/pages";
@@ -71,6 +71,9 @@ const App = () => {
               <Screen
                 name={PAGES.ROUTE_POINT_INFO}
                 component={RoutePointInfo}
+                options={{
+                  title: ROUTE_POINT_INFO_TITLE,
+                }}
               />
               <Screen
                 name={PAGES.LOGIN}

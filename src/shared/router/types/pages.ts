@@ -1,3 +1,4 @@
+import { Id } from "shared/types/api/common/Id";
 import { CityResponse } from "shared/types/api/response/CityResponse";
 
 export enum PAGES {
@@ -16,7 +17,9 @@ export type ParamList = {
   [PAGES.REQUEST]: undefined;
   [PAGES.ROUTES]: undefined;
   [PAGES.ROUTE_INFO]: undefined;
-  [PAGES.ROUTE_POINT_INFO]: undefined;
+  [PAGES.ROUTE_POINT_INFO]: {
+    id: Id;
+  };
   [PAGES.CITY_SEARCH]: {
     title: string;
     setCity: (value: CityResponse) => void;

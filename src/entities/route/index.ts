@@ -1,2 +1,7 @@
 export { useRoute } from "./hooks";
-export { RouteHistoryCard, RouteProvider } from "./ui";
+export {
+  RouteExistenceChecker,
+  RouteHistoryCard,
+  RouteProvider,
+  RouteSaveButton,
+} from "./ui";

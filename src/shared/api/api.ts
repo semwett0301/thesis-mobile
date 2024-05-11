@@ -4,23 +4,29 @@ import { PAGES } from "../router/types/pages";
 import { navigateOutside } from "../router/utils";
 import { getAccessToken } from "../utils/auth";
 
-export const api = axios.create({
-  baseURL: process.env.EXPO_PUBLIC_API_URL,
-  headers: {
-    Authorization: !getAccessToken() ? null : `Bearer ${getAccessToken()}`,
-  },
-});
+export const api = async () => {
+  const token = await getAccessToken();
 
-api.interceptors.response.use(
-  (response) => response,
-  (error: AxiosError) => {
-    switch (error.response?.status) {
-      case 401:
-        navigateOutside<PAGES.REQUEST>(PAGES.REQUEST, undefined);
-        break;
-      default:
-    }
+  const request = axios.create({
+    baseURL: process.env.EXPO_PUBLIC_API_URL,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-    return Promise.reject(error);
-  },
-);
+  request.interceptors.response.use(
+    (response) => response,
+    (error: AxiosError) => {
+      switch (error.response?.status) {
+        case 401:
+          navigateOutside<PAGES.REQUEST>(PAGES.REQUEST, undefined);
+          break;
+        default:
+      }
+
+      return Promise.reject(error);
+    },
+  );
+
+  return request;
+};

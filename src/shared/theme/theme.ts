@@ -43,8 +43,8 @@ export const theme = {
   checkbox_fill: "#1890ff",
 
   checkbox_fill_disabled: "#f5f5f5",
-  color_icon_base: "#cccccc",
 
+  color_icon_base: "#cccccc",
   color_link: brandPrimary,
 
   color_text_base: "#333333",
@@ -54,8 +54,8 @@ export const theme = {
   color_text_caption: "#888888",
 
   color_text_disabled: "#bbbbbb",
-  color_text_paragraph: "#333333",
 
+  color_text_paragraph: "#333333",
   color_text_placeholder: "#bbbbbb",
 
   color_text_secondary: "#a4a9b0",
@@ -69,8 +69,8 @@ export const theme = {
   fill_body: "#FAFBFC",
 
   fill_disabled: "#dddddd",
-  fill_grey: "#f7f7f7",
 
+  fill_grey: "#f7f7f7",
   fill_mask: "rgba(0, 0, 0, .4)",
 
   fill_primary: "#108EE9",
@@ -78,8 +78,8 @@ export const theme = {
   fill_tap: "#dddddd",
 
   font_size_base: 15,
-  font_size_caption: 16,
 
+  font_size_caption: 16,
   font_size_caption_sm: 12,
 
   font_size_heading: 15,
@@ -203,6 +203,8 @@ export const theme = {
   tag_height: 25,
 
   tag_small_height: 15,
+
+  title_font_size: 20,
 
   toast_fill: "rgba(0, 0, 0, .8)",
 

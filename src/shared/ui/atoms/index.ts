@@ -1,6 +1,7 @@
 export * from "./AccountIcon";
 export * from "./BackIcon";
 export * from "./CustomInput";
+export * from "./CustomMap";
 export * from "./CustomTextarea";
 export * from "./ErrorMessage";
 export * from "./NavigationText";

@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   menuText: {
-    fontSize: 17,
+    fontSize: theme.button_font_size,
   },
   separator: {
     backgroundColor: theme.separator_color_base,

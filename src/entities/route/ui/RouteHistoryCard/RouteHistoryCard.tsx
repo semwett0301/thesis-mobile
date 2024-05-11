@@ -14,7 +14,7 @@ export const RouteHistoryCard = ({ data }: Props) => {
   return (
     <Flex direction="column" align="start" style={styles.container}>
       <CustomText style={styles.dateText}>
-        {toDay(data.start_date)}-{toDay(data.end_date)}
+        {toDay(new Date(data.start_date))}-{toDay(new Date(data.end_date))}
       </CustomText>
       <CustomText style={styles.cityText}>
         {data.start_city.title}-{data.end_city.title}

@@ -48,7 +48,7 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
               >
                 <CustomText
                   style={{
-                    fontSize: 17,
+                    fontSize: theme.button_font_size,
                   }}
                 >
                   {item.title}

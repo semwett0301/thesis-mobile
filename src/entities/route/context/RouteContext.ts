@@ -1,9 +1,10 @@
 import { createContext } from "react";
-import { RouteGenerationResponse } from "shared/types/api/response/RouteGenerationResponse";
+
+import { RouteResponse } from "../../../shared/types/api/response/RouteResponse";
 
 interface RouteContextState {
-  route: RouteGenerationResponse | null;
-  setRoute: (data: RouteGenerationResponse | null) => void;
+  route: RouteResponse | null;
+  setRoute: (data: RouteResponse | null) => void;
 }
 
 export const RouteContext = createContext<RouteContextState>({

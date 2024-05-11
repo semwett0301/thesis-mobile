@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     flex: 1,
-    fontSize: 17,
+    fontSize: theme.button_font_size,
     textAlign: "center",
   },
   leftSide: {

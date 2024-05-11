@@ -29,7 +29,7 @@ export const SearchInput = ({ styles, ...props }: InputItemProps) => {
             marginLeft: 0,
           },
           input: {
-            fontSize: 17,
+            fontSize: theme.button_font_size,
           },
           ...styles,
         }}

@@ -84,16 +84,16 @@ export const RouteGenerationForm = () => {
             }}
             render={({ field: { onChange, value } }) => (
               <DatePicker
-                value={value}
+                value={value ? new Date(value) : undefined}
                 onChange={(date) => {
                   if (endDate && compareAsc(date, endDate) >= 0)
                     setValue("end_date", undefined);
-                  onChange(date);
+                  onChange(date.toISOString());
                 }}
                 minDate={new Date()}
               >
                 <SelectItem style={styles.selectItem}>
-                  {value ? toRussianDate(value) : config.when_label}
+                  {value ? toRussianDate(new Date(value)) : config.when_label}
                 </SelectItem>
               </DatePicker>
             )}
@@ -109,13 +109,13 @@ export const RouteGenerationForm = () => {
                 onChange={(date) => {
                   if (startDate && compareDesc(date, startDate) >= 0)
                     setValue("start_date", undefined);
-                  onChange(date);
+                  onChange(date.toISOString());
                 }}
-                value={value}
+                value={value ? new Date(value) : undefined}
                 minDate={addDays(new Date(), 1)}
               >
                 <SelectItem style={styles.selectItem}>
-                  {value ? toRussianDate(value) : config.return_label}
+                  {value ? toRussianDate(new Date(value)) : config.return_label}
                 </SelectItem>
               </DatePicker>
             )}

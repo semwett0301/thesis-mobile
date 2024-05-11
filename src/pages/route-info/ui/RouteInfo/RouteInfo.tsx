@@ -1,27 +1,28 @@
-import { Toast } from "@ant-design/react-native";
-import { StackActions } from "@react-navigation/native";
-import { useRoute } from "entities/route";
-import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
-import { PAGES } from "shared/router/types/pages";
-import { Page } from "shared/ui/layouts";
+import { useAuth } from "entities/auth";
+import { Map } from "entities/coords";
+import {
+  RouteExistenceChecker,
+  RouteSaveButton,
+  useRoute,
+} from "entities/route";
+import { Page, Section } from "shared/ui/layouts";
 import { TransportRoute } from "widgets/transport-route";
 
 export const RouteInfo = () => {
-  const navigation = useAppNavigation();
   const { route } = useRoute();
+  const { isAuth } = useAuth();
 
-  if (!route) {
-    Toast.fail("Маршрут не получен");
-    navigation.dispatch(StackActions.replace(PAGES.REQUEST));
-    return <Page />;
-  }
+  const coords = route?.route_points.map((point) => point.coords) ?? [];
 
   return (
-    <Page>
-      <TransportRoute
-        airplaneTickets={route.airplane_tickets}
-        railwayTickets={route.railway_tickets}
-      />
-    </Page>
+    <RouteExistenceChecker>
+      <Page>
+        <TransportRoute airplaneTickets={[]} railwayTickets={[]} />
+        <Section label="Карта">
+          <Map mode="route" coords={coords} />
+        </Section>
+        {isAuth && <RouteSaveButton />}
+      </Page>
+    </RouteExistenceChecker>
   );
 };

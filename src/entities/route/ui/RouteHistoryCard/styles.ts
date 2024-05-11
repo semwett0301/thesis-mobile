@@ -3,7 +3,7 @@ import { theme } from "shared/theme";
 
 export const styles = StyleSheet.create({
   cityText: {
-    fontSize: 13,
+    fontSize: theme.button_font_size_sm,
   },
   container: {
     backgroundColor: theme.fill_base,

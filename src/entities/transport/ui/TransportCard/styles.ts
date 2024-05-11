@@ -21,18 +21,18 @@ export const styles = StyleSheet.create({
   },
   point: {
     color: theme.field_color_base,
-    fontSize: 10,
+    fontSize: theme.font_size_icontext,
   },
   price: {
-    fontSize: 20,
+    fontSize: theme.title_font_size,
     fontWeight: "bold",
   },
   source: {
     color: theme.field_color_base,
-    fontSize: 13,
+    fontSize: theme.button_font_size_sm,
   },
   text: {
-    fontSize: 13,
+    fontSize: theme.button_font_size_sm,
   },
   textContainer: {
     gap: 5,
