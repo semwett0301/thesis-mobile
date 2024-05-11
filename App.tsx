@@ -1,3 +1,5 @@
+import "react-native-gesture-handler";
+
 import { Provider } from "@ant-design/react-native";
 import ruRU from "@ant-design/react-native/lib/locale-provider/ru_RU";
 import { NavigationContainer } from "@react-navigation/native";

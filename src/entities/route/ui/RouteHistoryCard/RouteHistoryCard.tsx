@@ -8,11 +8,17 @@ import { styles } from "./styles";
 
 interface Props {
   data: RouteResponse;
+  onPress?: () => void;
 }
 
-export const RouteHistoryCard = ({ data }: Props) => {
+export const RouteHistoryCard = ({ data, onPress }: Props) => {
   return (
-    <Flex direction="column" align="start" style={styles.container}>
+    <Flex
+      onPress={onPress}
+      direction="column"
+      align="start"
+      style={styles.container}
+    >
       <CustomText style={styles.dateText}>
         {toDay(new Date(data.start_date))}-{toDay(new Date(data.end_date))}
       </CustomText>

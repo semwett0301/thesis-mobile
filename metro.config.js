@@ -5,7 +5,4 @@ const config = getDefaultConfig(__dirname);
 
 config.resolver.sourceExts.push("mjs");
 
-module.exports = {
-  projectRoot: path.resolve(__dirname),
-  ...config,
-};
+module.exports = config;

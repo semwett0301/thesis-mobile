@@ -1,6 +1,6 @@
 import { Flex } from "@ant-design/react-native";
+import { Icon, Image } from "@rneui/base";
 import React from "react";
-import { Icon, Image } from "react-native-elements";
 import { TransportResponse } from "shared/types/api/response/TransportResponse";
 import { CustomText } from "shared/ui/atoms";
 

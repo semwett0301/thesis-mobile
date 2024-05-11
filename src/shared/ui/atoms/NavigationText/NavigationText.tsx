@@ -1,5 +1,5 @@
+import { Text, TextProps } from "@rneui/base";
 import React from "react";
-import { Text, TextProps } from "react-native-elements";
 import { theme } from "shared/theme";
 
 export const CustomText = ({

@@ -1,7 +1,7 @@
 import { Flex, InputItem } from "@ant-design/react-native";
 import { InputItemProps } from "@ant-design/react-native/es/input-item";
+import { Icon } from "@rneui/base";
 import React from "react";
-import { Icon } from "react-native-elements";
 import { theme } from "shared/theme";
 
 export const SearchInput = ({ styles, ...props }: InputItemProps) => {

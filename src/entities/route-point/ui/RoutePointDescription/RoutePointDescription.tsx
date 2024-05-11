@@ -1,7 +1,7 @@
 import { Flex, Toast } from "@ant-design/react-native";
+import { Divider, Icon } from "@rneui/base";
 import React from "react";
 import { Linking, TouchableOpacity } from "react-native";
-import { Divider, Icon } from "react-native-elements";
 import { RoutePointResponse } from "shared/types/api/response/RoutePointResponse";
 import { CustomText } from "shared/ui/atoms";
 

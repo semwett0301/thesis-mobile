@@ -1,9 +1,11 @@
 import { addDays } from "date-fns";
-import { RouteHistoryCard } from "entities/route";
+import { RouteHistoryCard, useRoute } from "entities/route";
 import React from "react";
 import { RouteResponse } from "shared/types/api/response/RouteResponse";
 import { Section } from "shared/ui/layouts";
 
+import { useAppNavigation } from "../../../../shared/router/hooks/useAppNavigation";
+import { PAGES } from "../../../../shared/router/types/pages";
 import { config } from "../../config";
 
 const routes: RouteResponse[] = [
@@ -40,10 +42,20 @@ const routes: RouteResponse[] = [
 ];
 
 export const RecentlyRoutes = () => {
+  const { setRoute } = useRoute();
+  const navigation = useAppNavigation();
+
   return (
     <Section label={config.recentlyName} first last>
       {routes.map((route) => (
-        <RouteHistoryCard key={route.id} data={route} />
+        <RouteHistoryCard
+          onPress={() => {
+            setRoute(route);
+            navigation.navigate(PAGES.ROUTE_INFO);
+          }}
+          key={route.id}
+          data={route}
+        />
       ))}
     </Section>
   );

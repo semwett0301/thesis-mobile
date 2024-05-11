@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from "react";
-import { SafeAreaView } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { theme } from "shared/theme";
 
 export const Page = ({ children }: PropsWithChildren) => {
   return (
-    <SafeAreaView
+    <ScrollView
       style={{
         backgroundColor: theme.fill_body,
         height: "100%",
@@ -12,6 +12,6 @@ export const Page = ({ children }: PropsWithChildren) => {
       }}
     >
       {children}
-    </SafeAreaView>
+    </ScrollView>
   );
 };

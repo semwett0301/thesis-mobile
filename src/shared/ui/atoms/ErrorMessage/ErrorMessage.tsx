@@ -1,5 +1,5 @@
+import { Text } from "@rneui/base";
 import React, { PropsWithChildren } from "react";
-import { Text } from "react-native-elements";
 import { theme } from "shared/theme";
 
 export const ErrorMessage = ({ children }: PropsWithChildren) => {
