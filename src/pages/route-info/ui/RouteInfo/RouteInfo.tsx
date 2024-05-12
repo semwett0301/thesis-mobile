@@ -19,7 +19,7 @@ export const RouteInfo = () => {
   return (
     <RouteExistenceChecker>
       <Page>
-        <TransportRoute airplaneTickets={[]} railwayTickets={[]} />
+        <TransportRoute />
         <AccomodationRoute />
         <PointsRoute />
         <Section label="Карта">
