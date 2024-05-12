@@ -2,6 +2,7 @@ import { useIsFocused } from "@react-navigation/core";
 import { useCallback, useContext, useEffect } from "react";
 import {
   clearTokens,
+  getRefreshToken,
   setAccessToken,
   setRefreshToken,
 } from "shared/utils/auth";
@@ -62,11 +63,15 @@ export const useAuth = () => {
         setIsAuth(true);
       } catch {
         try {
+          const currentRefresh = await getRefreshToken();
+
           const {
             data: { access, refresh },
-          } = await postRefresh();
+          } = await postRefresh(currentRefresh);
+
           await setAccessToken(access);
           await setRefreshToken(refresh);
+
           setIsAuth(true);
         } catch {
           await clearTokens();

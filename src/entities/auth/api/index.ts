@@ -32,11 +32,12 @@ export const postRegister = async (auth: AuthRequest) => {
   );
 };
 
-export const postRefresh = async () => {
+export const postRefresh = async (refresh: string | null) => {
   const request = await api();
 
-  return request.post<AuthRequest, AxiosResponse<Auth>>(
+  return request.post<{ refresh: string | null }, AxiosResponse<Auth>>(
     `${BASE_AUTH_URL}/refresh`,
+    { refresh },
   );
 };
 

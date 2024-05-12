@@ -5,6 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
+import { City } from "shared/types/api/City";
 import { ErrorMessage, SelectItem } from "shared/ui/atoms";
 import { CustomInput } from "shared/ui/atoms/CustomInput";
 import { CustomTextarea } from "shared/ui/atoms/CustomTextarea";
@@ -13,19 +14,23 @@ import { toRussianDate } from "shared/utils/date";
 import { config } from "widgets/route-generation-form/config";
 import { styles } from "widgets/route-generation-form/ui/RouteGenerationForm/styles";
 
-import { City } from "../../../../shared/types/api/City";
 import { RouteRequest } from "../../types";
 
-export const RouteGenerationForm = () => {
+interface Props {
+  disabled?: boolean;
+  onSubmit: (form: RouteRequest) => void;
+}
+
+export const RouteGenerationForm = ({ disabled = false, onSubmit }: Props) => {
   const navigation = useAppNavigation();
 
   const {
     control,
     formState: { isValid },
-    // handleSubmit,
-    setValue,
+    handleSubmit,
+    resetField,
     watch,
-  } = useForm<Partial<RouteRequest>>({
+  } = useForm<RouteRequest>({
     mode: "all",
   });
 
@@ -88,7 +93,7 @@ export const RouteGenerationForm = () => {
                 value={value ? new Date(value) : undefined}
                 onChange={(date) => {
                   if (endDate && compareAsc(date, endDate) >= 0)
-                    setValue("end_date", undefined);
+                    resetField("end_date");
                   onChange(date.toISOString());
                 }}
                 minDate={new Date()}
@@ -109,7 +114,7 @@ export const RouteGenerationForm = () => {
               <DatePicker
                 onChange={(date) => {
                   if (startDate && compareDesc(date, startDate) >= 0)
-                    setValue("start_date", undefined);
+                    resetField("start_date");
                   onChange(date.toISOString());
                 }}
                 value={value ? new Date(value) : undefined}
@@ -175,7 +180,12 @@ export const RouteGenerationForm = () => {
         />
       </Section>
       <View style={styles.buttonWrapper}>
-        <Button disabled={!isValid} style={styles.button} type="primary">
+        <Button
+          onPress={handleSubmit(onSubmit)}
+          disabled={!isValid && disabled}
+          style={styles.button}
+          type="primary"
+        >
           Сгенерировать
         </Button>
       </View>
