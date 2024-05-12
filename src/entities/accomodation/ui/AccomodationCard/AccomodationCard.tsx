@@ -2,14 +2,14 @@ import { Flex } from "@ant-design/react-native";
 import { Icon } from "@rneui/base";
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import { AccomodationResponse } from "shared/types/api/response/AccomodationResponse";
 import { CustomText } from "shared/ui/atoms";
 import { openLink } from "shared/utils/link";
 
+import { Accomodation } from "../../../../shared/types/api/Accomodation";
 import { styles } from "./styles";
 
 interface Props {
-  data: AccomodationResponse;
+  data: Accomodation;
 }
 
 export const AccomodationCard = ({ data }: Props) => {

@@ -12,7 +12,9 @@ export const PointsRoute = () => {
   return (
     <Section label={POINTS_LABEL}>
       <CustomCarousel>
-        {route?.route_points.map((point) => <RoutePointCard data={point} />)}
+        {route?.route_points.map((point) => (
+          <RoutePointCard key={point.id} data={point} />
+        ))}
       </CustomCarousel>
     </Section>
   );

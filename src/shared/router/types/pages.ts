@@ -1,5 +1,5 @@
-import { Id } from "shared/types/api/common/Id";
-import { CityResponse } from "shared/types/api/response/CityResponse";
+import { City } from "../../types/api/City";
+import { Id } from "../../types/api/Id";
 
 export enum PAGES {
   LOGIN = "LOGIN",
@@ -22,6 +22,6 @@ export type ParamList = {
   };
   [PAGES.CITY_SEARCH]: {
     title: string;
-    setCity: (value: CityResponse) => void;
+    setCity: (value: City) => void;
   };
 };

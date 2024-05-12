@@ -1,12 +1,13 @@
 import { Flex } from "@ant-design/react-native";
 import { TransportList } from "features/transport-list";
 import React from "react";
-import { TransportResponse } from "shared/types/api/response/TransportResponse";
 import { AIRPLANE_LABEL, RAILWAY_LABEL } from "widgets/transport-route/config";
 
+import { Transport } from "../../../../shared/types/api/Transport";
+
 interface Props {
-  airplaneTickets: TransportResponse[];
-  railwayTickets: TransportResponse[];
+  airplaneTickets: Transport[];
+  railwayTickets: Transport[];
 }
 
 export const TransportRoute = ({ airplaneTickets, railwayTickets }: Props) => {

@@ -1,1 +1,1 @@
-export const baseAuthUrl = "/auth";
+export const BASE_AUTH_URL = "/auth";

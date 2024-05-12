@@ -1,4 +1,4 @@
-import { Coords } from "shared/types/api/common/Coords";
+import { Coords } from "../../../shared/types/api/Coords";
 
 export const INITIAL_COORDS: Coords = {
   latitude: 0,

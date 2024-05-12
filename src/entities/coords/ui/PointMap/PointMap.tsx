@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { Marker, Region } from "react-native-maps";
-import { Coords } from "shared/types/api/common/Coords";
 import { CustomMap } from "shared/ui/atoms";
 
+import { Coords } from "../../../../shared/types/api/Coords";
 import { INITIAL_COORDS } from "../../config";
 
 interface Props {

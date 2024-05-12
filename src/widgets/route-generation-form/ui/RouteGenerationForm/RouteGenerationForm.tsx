@@ -5,8 +5,6 @@ import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
-import { RouteRequest } from "shared/types/api/request/RouteRequest";
-import { CityResponse } from "shared/types/api/response/CityResponse";
 import { ErrorMessage, SelectItem } from "shared/ui/atoms";
 import { CustomInput } from "shared/ui/atoms/CustomInput";
 import { CustomTextarea } from "shared/ui/atoms/CustomTextarea";
@@ -14,6 +12,9 @@ import { Section } from "shared/ui/layouts";
 import { toRussianDate } from "shared/utils/date";
 import { config } from "widgets/route-generation-form/config";
 import { styles } from "widgets/route-generation-form/ui/RouteGenerationForm/styles";
+
+import { City } from "../../../../shared/types/api/City";
+import { RouteRequest } from "../../types";
 
 export const RouteGenerationForm = () => {
   const navigation = useAppNavigation();
@@ -31,7 +32,7 @@ export const RouteGenerationForm = () => {
   const startDate = watch("start_date");
   const endDate = watch("end_date");
 
-  const chooseCity = (title: string, setCity: (city: CityResponse) => void) => {
+  const chooseCity = (title: string, setCity: (city: City) => void) => {
     navigation.navigate(PAGES.CITY_SEARCH, {
       setCity,
       title,

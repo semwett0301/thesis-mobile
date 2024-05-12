@@ -1,20 +1,20 @@
 import { AxiosResponse } from "axios";
 import { api } from "shared/api/api";
-import { AuthRequest } from "shared/types/api/request/AuthRequest";
-import { AuthResponse } from "shared/types/api/response/AuthResponse";
 
-import { baseAuthUrl } from "../config";
+import { Auth } from "../../../shared/types/api/Auth";
+import { BASE_AUTH_URL } from "../config";
+import { AuthRequest } from "../types";
 
 export const getMe = async () => {
   const request = await api();
-  return request.get<AuthResponse>(`${baseAuthUrl}/me`);
+  return request.get<Auth>(`${BASE_AUTH_URL}/me`);
 };
 
 export const postLogin = async (auth: AuthRequest) => {
   const request = await api();
 
-  return request.post<AuthRequest, AxiosResponse<AuthResponse>>(
-    `${baseAuthUrl}/login`,
+  return request.post<AuthRequest, AxiosResponse<Auth>>(
+    `${BASE_AUTH_URL}/login`,
     {
       ...auth,
     },
@@ -24,8 +24,8 @@ export const postLogin = async (auth: AuthRequest) => {
 export const postRegister = async (auth: AuthRequest) => {
   const request = await api();
 
-  return request.post<AuthRequest, AxiosResponse<AuthResponse>>(
-    `${baseAuthUrl}/register`,
+  return request.post<AuthRequest, AxiosResponse<Auth>>(
+    `${BASE_AUTH_URL}/register`,
     {
       ...auth,
     },
@@ -35,13 +35,13 @@ export const postRegister = async (auth: AuthRequest) => {
 export const postRefresh = async () => {
   const request = await api();
 
-  return request.post<AuthRequest, AxiosResponse<AuthResponse>>(
-    `${baseAuthUrl}/refresh`,
+  return request.post<AuthRequest, AxiosResponse<Auth>>(
+    `${BASE_AUTH_URL}/refresh`,
   );
 };
 
 export const postLogout = async () => {
   const request = await api();
 
-  return request.post<AuthRequest, never>(`${baseAuthUrl}/logout`);
+  return request.post<AuthRequest, never>(`${BASE_AUTH_URL}/logout`);
 };

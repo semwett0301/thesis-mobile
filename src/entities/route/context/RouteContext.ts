@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
-import { RouteResponse } from "../../../shared/types/api/response/RouteResponse";
+import { Route } from "../../../shared/types/api/Route";
 
 interface RouteContextState {
-  route: RouteResponse | null;
-  setRoute: (data: RouteResponse | null) => void;
+  route: Route | null;
+  setRoute: (data: Route | null) => void;
 }
 
 export const RouteContext = createContext<RouteContextState>({

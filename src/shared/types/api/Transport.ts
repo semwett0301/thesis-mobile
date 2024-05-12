@@ -1,4 +1,4 @@
-export interface TransportResponse {
+export interface Transport {
   id: string;
   logo_url: string;
   price: number;

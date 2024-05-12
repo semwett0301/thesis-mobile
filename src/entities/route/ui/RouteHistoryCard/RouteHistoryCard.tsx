@@ -1,13 +1,13 @@
 import { Flex } from "@ant-design/react-native";
 import React from "react";
-import { RouteResponse } from "shared/types/api/response/RouteResponse";
 import { CustomText } from "shared/ui/atoms";
 import { toDay } from "shared/utils/date";
 
+import { Route } from "../../../../shared/types/api/Route";
 import { styles } from "./styles";
 
 interface Props {
-  data: RouteResponse;
+  data: Route;
   onPress?: () => void;
 }
 

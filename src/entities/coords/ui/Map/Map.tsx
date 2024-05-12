@@ -1,6 +1,6 @@
 import React from "react";
-import { Coords } from "shared/types/api/common/Coords";
 
+import { Coords } from "../../../../shared/types/api/Coords";
 import { PointMap } from "../PointMap";
 import { RouteMap } from "../RouteMap";
 

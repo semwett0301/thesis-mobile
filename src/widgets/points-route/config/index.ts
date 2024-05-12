@@ -1,1 +1,1 @@
-export const POINTS_LABEL = "Билеты на поезд";
+export const POINTS_LABEL = "Точки маршрута";

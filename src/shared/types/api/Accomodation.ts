@@ -1,6 +1,6 @@
-import { Id } from "../common/Id";
+import { Id } from "./Id";
 
-export interface AccomodationResponse {
+export interface Accomodation {
   id: Id;
   price: number;
   name: string;

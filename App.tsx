@@ -24,6 +24,8 @@ const { Navigator, Screen } = createStackNavigator<ParamList>();
 
 LogBox.ignoreLogs([
   "Non-serializable values were found in the navigation state",
+  'fontFamily "anticon" is not a system font and has not been loaded through expo-font',
+  'fontFamily "feather" is not a system font and has not been loaded through expo-font.',
 ]);
 
 const App = () => {
@@ -32,8 +34,6 @@ const App = () => {
     antfill: require("./src/shared/assets/fonts/HelveticaNeue.ttf"),
     antoutline: require("./src/shared/assets/fonts/HelveticaNeue.ttf"),
   });
-
-  console.log("dsadas");
 
   if (!fontsLoaded) {
     return <View />;

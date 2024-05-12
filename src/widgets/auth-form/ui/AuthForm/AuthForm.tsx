@@ -1,7 +1,7 @@
 import { Button, Flex } from "@ant-design/react-native";
+import { AuthRequest } from "entities/auth";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { AuthRequest } from "shared/types/api/request/AuthRequest";
 import { ErrorMessage } from "shared/ui/atoms";
 import { CustomInput } from "shared/ui/atoms/CustomInput";
 import { Section } from "shared/ui/layouts";

@@ -2,9 +2,9 @@ import React, { ReactNode, useMemo } from "react";
 import { Marker, Region } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import { theme } from "shared/theme";
-import { Coords } from "shared/types/api/common/Coords";
 import { CustomMap } from "shared/ui/atoms";
 
+import { Coords } from "../../../../shared/types/api/Coords";
 import { API_KEY, INITIAL_COORDS } from "../../config";
 
 interface Props {
@@ -26,11 +26,12 @@ export const RouteMap = ({ data = [] }: Props) => {
     () =>
       data?.reduce((acc: ReactNode[], coord, idx) => {
         if (idx === 0) {
-          acc.push(<Marker coordinate={coord} />);
+          acc.push(<Marker key={coord.latitude} coordinate={coord} />);
         } else {
-          acc.push(<Marker coordinate={coord} />);
+          acc.push(<Marker key={coord.latitude} coordinate={coord} />);
           acc.push(
             <MapViewDirections
+              key={coord.latitude + data[idx - 1].latitude}
               apikey={API_KEY}
               origin={data[idx - 1]}
               destination={coord}
@@ -39,7 +40,6 @@ export const RouteMap = ({ data = [] }: Props) => {
             />,
           );
         }
-
         return acc;
       }, []),
     [data],

@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.fill_base,
     gap: 12,
+    height: 200,
     padding: 12,
     width: "100%",
   },

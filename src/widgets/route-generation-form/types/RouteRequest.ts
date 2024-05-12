@@ -1,9 +1,9 @@
-import { TDateISO } from "../common/IsoDateTime";
-import { CityResponse } from "../response/CityResponse";
+import { City } from "shared/types/api/City";
+import { TDateISO } from "shared/types/api/IsoDateTime";
 
 export interface RouteRequest {
-  start_city: CityResponse;
-  end_city: CityResponse;
+  start_city: City;
+  end_city: City;
   start_date: TDateISO;
   end_date: TDateISO;
   transport_price: number;

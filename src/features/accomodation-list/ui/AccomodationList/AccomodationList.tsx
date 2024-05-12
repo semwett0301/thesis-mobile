@@ -1,12 +1,13 @@
 import { AccomodationCard } from "entities/accomodation";
 import React from "react";
-import { AccomodationResponse } from "shared/types/api/response/AccomodationResponse";
 import { CustomCarousel, CustomSkeleton } from "shared/ui/atoms";
 import { Section } from "shared/ui/layouts";
 
+import { Accomodation } from "../../../../shared/types/api/Accomodation";
+
 interface Props {
   label?: string;
-  data: AccomodationResponse[];
+  data: Accomodation[];
 }
 
 export const AccomodationList = ({ data, label }: Props) => {

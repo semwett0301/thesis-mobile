@@ -1,6 +1,5 @@
 import { useIsFocused } from "@react-navigation/core";
 import { useCallback, useContext, useEffect } from "react";
-import { AuthRequest } from "shared/types/api/request/AuthRequest";
 import {
   clearTokens,
   setAccessToken,
@@ -15,6 +14,7 @@ import {
   postRegister,
 } from "../api";
 import { AuthContext } from "../context";
+import { AuthRequest } from "../types/AuthRequest";
 
 export const useAuth = () => {
   const { isAuth, isAuthLoaded, setIsAuth, setIsAuthLoaded } =

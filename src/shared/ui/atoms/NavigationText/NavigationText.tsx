@@ -13,7 +13,7 @@ export const CustomText = ({
     <Text
       style={{
         color: inverse ? theme.color_text_base_inverse : theme.color_text_base,
-        fontFamily: theme.main_font,
+        // fontFamily: theme.main_font,
         ...(style as object),
       }}
     >

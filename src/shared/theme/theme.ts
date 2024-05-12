@@ -130,7 +130,7 @@ export const theme = {
 
   list_title_height: 30,
 
-  main_font: "Helvetica",
+  // main_font: "Helvetica",
 
   modal_button_font_size: 18,
 

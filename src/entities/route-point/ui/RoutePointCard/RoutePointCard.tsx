@@ -5,14 +5,14 @@ import { TouchableOpacity } from "react-native";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
 import { theme } from "shared/theme";
-import { RoutePointResponse } from "shared/types/api/response/RoutePointResponse";
 import { CustomText } from "shared/ui/atoms";
 import { toDay } from "shared/utils/date";
 
+import { RoutePoint } from "../../../../shared/types/api/RoutePoint";
 import { styles } from "./styles";
 
 interface Props {
-  data: RoutePointResponse;
+  data: RoutePoint;
 }
 
 export const RoutePointCard = ({ data }: Props) => {

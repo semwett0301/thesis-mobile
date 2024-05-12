@@ -1,12 +1,13 @@
 import { TransportCard } from "entities/transport";
 import React from "react";
-import { TransportResponse } from "shared/types/api/response/TransportResponse";
 import { CustomSkeleton } from "shared/ui/atoms";
 import { Section } from "shared/ui/layouts";
 
+import { Transport } from "../../../../shared/types/api/Transport";
+
 interface Props {
   label?: string;
-  data: TransportResponse[];
+  data: Transport[];
 }
 
 export const TransportList = ({ data, label }: Props) => {
