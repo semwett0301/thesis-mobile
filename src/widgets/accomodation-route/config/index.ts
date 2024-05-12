@@ -1,2 +1,2 @@
-export const ACCOMMODATION_LABEL = "Билеты на поезд";
+export const ACCOMMODATION_LABEL = "Варианты проживания";
 export const BASE_ACCOMMODATION_URL = "/accommodations";

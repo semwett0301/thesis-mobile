@@ -2,10 +2,11 @@ import { Flex } from "@ant-design/react-native";
 import { Icon, Image } from "@rneui/base";
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { Transport } from "shared/types/api/Transport";
 import { CustomText } from "shared/ui/atoms";
 import { openLink } from "shared/utils/link";
 
-import { Transport } from "../../../../shared/types/api/Transport";
+import { theme } from "../../../../shared/theme";
 import { styles } from "./styles";
 
 interface Props {
@@ -23,7 +24,9 @@ export const TransportCard = ({ data }: Props) => {
         <Flex align="center" style={styles.logoContainer}>
           <Image
             source={{
+              height: 24,
               uri: data.logo_url,
+              width: 24,
             }}
             style={styles.logo}
           />
@@ -33,25 +36,29 @@ export const TransportCard = ({ data }: Props) => {
           justify="between"
           style={styles.contentContainer}
         >
-          <Flex justify="between">
+          <Flex style={styles.content} justify="between">
             <CustomText style={styles.price}>{data.price}₽</CustomText>
             <CustomText style={styles.source}>
               По данным {data.source}
             </CustomText>
           </Flex>
-          <Flex justify="between">
-            <Flex direction="column" style={styles.textContainer}>
+          <Flex style={styles.content} justify="between">
+            <Flex align="start" direction="column" style={styles.textContainer}>
               <CustomText style={styles.text}>
-                {data.start_city}-{data.end_city}
+                {data.start_city} - {data.end_city}
               </CustomText>
               <CustomText style={styles.text}>
-                {data.start_time}-{data.end_time}
+                {data.start_time} - {data.end_time}
               </CustomText>
             </Flex>
-            <Icon name="right" type="antdesign" />
+            <Icon
+              color={theme.field_color_base}
+              name="right"
+              type="antdesign"
+            />
           </Flex>
           <CustomText style={styles.point}>
-            {data.start_point}-{data.end_point}
+            {data.start_point} - {data.end_point}
           </CustomText>
         </Flex>
       </Flex>

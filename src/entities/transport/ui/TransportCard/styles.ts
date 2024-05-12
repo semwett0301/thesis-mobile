@@ -8,20 +8,27 @@ export const styles = StyleSheet.create({
     padding: 12,
     width: "100%",
   },
+  content: {
+    alignSelf: "stretch",
+  },
   contentContainer: {
-    width: "100%",
+    flex: 1,
+    gap: 3,
   },
   logo: {
+    borderRadius: 24,
     height: 24,
     width: 24,
   },
   logoContainer: {
     height: "100%",
-    paddingRight: 14,
+    paddingRight: 12,
+    width: 48,
   },
   point: {
     color: theme.field_color_base,
     fontSize: theme.font_size_icontext,
+    width: "100%",
   },
   price: {
     fontSize: theme.title_font_size,
@@ -35,6 +42,6 @@ export const styles = StyleSheet.create({
     fontSize: theme.button_font_size_sm,
   },
   textContainer: {
-    gap: 5,
+    alignSelf: "stretch",
   },
 });
