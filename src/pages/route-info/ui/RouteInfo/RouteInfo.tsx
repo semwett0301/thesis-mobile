@@ -20,13 +20,12 @@ export const RouteInfo = () => {
     <RouteExistenceChecker>
       <Page>
         <TransportRoute airplaneTickets={[]} railwayTickets={[]} />
-
         <AccomodationRoute />
         <PointsRoute />
         <Section label="Карта">
           <Map mode="route" coords={coords} />
         </Section>
-        {isAuth && <RouteSaveButton />}
+        {isAuth && !route?.is_saved && <RouteSaveButton />}
       </Page>
     </RouteExistenceChecker>
   );

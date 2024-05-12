@@ -12,5 +12,6 @@ export interface Route {
   end_date: TDateISO;
   transport_price: number;
   accommodation_price: number;
+  is_saved: boolean;
   additional_information?: string;
 }

@@ -25,7 +25,7 @@ export const RoutePointCard = ({ data }: Props) => {
   };
 
   return (
-    <Flex direction="column" style={styles.container}>
+    <Flex direction="column" justify="start" style={styles.container}>
       <Flex align="center" justify="between" style={styles.subContainer}>
         <CustomText style={styles.date}>
           {toDay(new Date(data.date))}
@@ -33,7 +33,12 @@ export const RoutePointCard = ({ data }: Props) => {
         <TouchableOpacity onPress={toRoutePointInfo}>
           <Flex align="center" style={styles.linkContainer}>
             <CustomText style={styles.link}>Полная информация</CustomText>
-            <Icon color={theme.fill_primary} name="right" type="antdesign" />
+            <Icon
+              color={theme.fill_primary}
+              name="right"
+              type="antdesign"
+              size={15}
+            />
           </Flex>
         </TouchableOpacity>
       </Flex>
@@ -41,7 +46,7 @@ export const RoutePointCard = ({ data }: Props) => {
       <Flex align="center" justify="between" style={styles.subContainer}>
         <CustomText style={styles.content}>{data.name}</CustomText>
         <CustomText style={styles.content}>
-          {data.start_time}-{data.end_time}
+          {data.start_time} - {data.end_time}
         </CustomText>
       </Flex>
       <CustomText style={styles.description}>{data.description}</CustomText>

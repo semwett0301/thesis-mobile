@@ -1,3 +1,4 @@
+import { useIsFocused } from "@react-navigation/core";
 import { AuthChecker } from "entities/auth";
 import { RecentlyRoutes, SavedRoutes } from "features/route-history";
 import { useEffect, useState } from "react";
@@ -7,6 +8,8 @@ import { LoaderOverlay } from "shared/ui/atoms/LoaderOverlay/LoaderOverlay";
 import { getRoutes } from "../../api";
 
 export const Routes = () => {
+  const isFocused = useIsFocused();
+
   const [recentlyRoutes, setRecentlyRoutes] = useState<Route[]>([]);
   const [savedRoutes, setSavedRoutes] = useState<Route[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,8 +25,8 @@ export const Routes = () => {
       setIsLoading(false);
     };
 
-    fetchRoutes().catch((e) => console.error(e));
-  }, []);
+    if (isFocused) fetchRoutes().catch((e) => console.error(e));
+  }, [isFocused]);
 
   return (
     <AuthChecker mode="auth">

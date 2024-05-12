@@ -18,9 +18,11 @@ export const styles = StyleSheet.create({
   },
   description: {
     fontSize: theme.font_size_icontext,
+    width: "100%",
   },
   divider: {
-    height: 2,
+    height: 4,
+    width: "100%",
   },
   link: {
     color: theme.fill_primary,

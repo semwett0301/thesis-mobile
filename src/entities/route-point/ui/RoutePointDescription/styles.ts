@@ -10,18 +10,32 @@ export const styles = StyleSheet.create({
   },
   description: {
     fontSize: theme.font_size_icontext,
+    width: "100%",
   },
   divider: {
-    height: 2,
+    height: 4,
+    width: "100%",
+  },
+  icon: {
+    width: "auto",
+  },
+  iconLink: {
+    color: theme.fill_primary,
+    position: "relative",
+    top: 2.5,
   },
   link: {
+    color: theme.field_color_base,
     fontSize: theme.button_font_size_sm,
+    padding: 5,
+    verticalAlign: "bottom",
   },
   linkContainer: {
-    color: theme.field_color_base,
-    gap: 6,
+    width: "100%",
   },
   title: {
     fontSize: theme.title_font_size,
+    fontWeight: "bold",
+    width: "100%",
   },
 });
