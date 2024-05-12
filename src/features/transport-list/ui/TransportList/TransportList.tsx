@@ -6,14 +6,13 @@ import { Section } from "shared/ui/layouts";
 
 interface Props {
   label?: string;
-  isLoading?: boolean;
   data: TransportResponse[];
 }
 
-export const TransportList = ({ data, isLoading = false, label }: Props) => {
+export const TransportList = ({ data, label }: Props) => {
   return (
     <Section label={label}>
-      {isLoading ? (
+      {!data.length ? (
         <CustomSkeleton height={208} />
       ) : (
         data.map((transport) => (

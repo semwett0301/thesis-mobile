@@ -1,0 +1,1 @@
+export { PointsRoute } from "./ui";

@@ -1,5 +1,6 @@
 export * from "./AccountIcon";
 export * from "./BackIcon";
+export * from "./CustomCarousel";
 export * from "./CustomInput";
 export * from "./CustomMap";
 export * from "./CustomSkeleton";

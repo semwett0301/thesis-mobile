@@ -1,1 +1,1 @@
-export { RoutePointDescription } from "./ui";
+export { RoutePointCard, RoutePointDescription } from "./ui";

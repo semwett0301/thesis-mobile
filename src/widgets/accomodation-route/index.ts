@@ -1,0 +1,1 @@
+export { AccomodationRoute } from "./ui";

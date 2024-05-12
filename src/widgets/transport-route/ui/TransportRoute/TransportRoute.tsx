@@ -12,8 +12,8 @@ interface Props {
 export const TransportRoute = ({ airplaneTickets, railwayTickets }: Props) => {
   return (
     <Flex direction="column">
-      <TransportList isLoading data={airplaneTickets} label={AIRPLANE_LABEL} />
-      <TransportList isLoading data={railwayTickets} label={RAILWAY_LABEL} />
+      <TransportList data={airplaneTickets} label={AIRPLANE_LABEL} />
+      <TransportList data={railwayTickets} label={RAILWAY_LABEL} />
     </Flex>
   );
 };

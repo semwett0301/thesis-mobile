@@ -6,6 +6,8 @@ import {
   useRoute,
 } from "entities/route";
 import { Page, Section } from "shared/ui/layouts";
+import { AccomodationRoute } from "widgets/accomodation-route";
+import { PointsRoute } from "widgets/points-route";
 import { TransportRoute } from "widgets/transport-route";
 
 export const RouteInfo = () => {
@@ -21,6 +23,8 @@ export const RouteInfo = () => {
         <Section label="Карта">
           <Map mode="route" coords={coords} />
         </Section>
+        <AccomodationRoute />
+        <PointsRoute />
         {isAuth && <RouteSaveButton />}
       </Page>
     </RouteExistenceChecker>

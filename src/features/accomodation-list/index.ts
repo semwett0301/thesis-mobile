@@ -1,0 +1,1 @@
+export { AccomodationList } from "./ui";

@@ -1,9 +1,10 @@
-import { Flex, Toast } from "@ant-design/react-native";
+import { Flex } from "@ant-design/react-native";
 import { Divider, Icon } from "@rneui/base";
 import React from "react";
-import { Linking, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { RoutePointResponse } from "shared/types/api/response/RoutePointResponse";
 import { CustomText } from "shared/ui/atoms";
+import { openLink } from "shared/utils/link";
 
 import { styles } from "./styles";
 
@@ -12,16 +13,8 @@ interface Props {
 }
 
 export const RoutePointDescription = ({ data }: Props) => {
-  const openUrl = async () => {
-    if (data?.url) {
-      const supported = await Linking.canOpenURL(data.url);
-
-      if (supported) {
-        await Linking.openURL(data.url);
-      } else {
-        Toast.fail(`Don't know how to open this URL: ${data.url}`);
-      }
-    }
+  const openPointWebsite = async () => {
+    await openLink(data?.url);
   };
 
   return (
@@ -31,7 +24,7 @@ export const RoutePointDescription = ({ data }: Props) => {
       <CustomText style={styles.description}>
         {data?.description ?? ""}
       </CustomText>
-      <TouchableOpacity onPress={openUrl}>
+      <TouchableOpacity onPress={openPointWebsite}>
         <Flex align="center" style={styles.linkContainer}>
           <CustomText style={styles.link}>Сайт места</CustomText>
           <Icon name="right" type="antdesign" size={15} />
