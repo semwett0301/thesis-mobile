@@ -1,9 +1,10 @@
 import { AccomodationCard } from "entities/accomodation";
 import React from "react";
+import { Accomodation } from "shared/types/api/Accomodation";
 import { CustomCarousel, CustomSkeleton } from "shared/ui/atoms";
 import { Section } from "shared/ui/layouts";
 
-import { Accomodation } from "../../../../shared/types/api/Accomodation";
+import { styles } from "./styles";
 
 interface Props {
   label?: string;
@@ -16,7 +17,7 @@ export const AccomodationList = ({ data, label }: Props) => {
       {!data.length ? (
         <CustomSkeleton height={104} />
       ) : (
-        <CustomCarousel>
+        <CustomCarousel style={styles.carousel}>
           {data.map((transport) => (
             <AccomodationCard key={transport.id} data={transport} />
           ))}

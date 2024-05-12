@@ -2,10 +2,11 @@ import { Flex } from "@ant-design/react-native";
 import { Icon } from "@rneui/base";
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { Accomodation } from "shared/types/api/Accomodation";
 import { CustomText } from "shared/ui/atoms";
 import { openLink } from "shared/utils/link";
 
-import { Accomodation } from "../../../../shared/types/api/Accomodation";
+import { theme } from "../../../../shared/theme";
 import { styles } from "./styles";
 
 interface Props {
@@ -31,11 +32,11 @@ export const AccomodationCard = ({ data }: Props) => {
               {data.center_distance}км от центра
             </CustomText>
           </Flex>
-          <Icon name="right" type="antdesign" />
+          <Icon name="right" type="antdesign" color={theme.field_color_base} />
         </Flex>
         <Flex align="center" style={styles.bottomContainer}>
           <Flex align="center" style={styles.ratingContainer}>
-            <Icon name="starfilled" type="antdesign" />
+            <Icon name="star" type="antdesign" size={8} />
             <CustomText style={styles.rating}>{data.rating}</CustomText>
           </Flex>
           <CustomText style={styles.reviews}>

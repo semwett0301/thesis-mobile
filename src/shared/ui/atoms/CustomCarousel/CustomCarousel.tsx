@@ -14,10 +14,13 @@ export const CustomCarousel = ({
       styles={{
         pointActiveStyle: {
           backgroundColor: theme.brand_primary_tap,
-          width: 20,
+          height: 3,
+          width: 15,
         },
         pointStyle: {
           backgroundColor: theme.field_color_base,
+          height: 3,
+          width: 3,
         },
       }}
       infinite={infinite}

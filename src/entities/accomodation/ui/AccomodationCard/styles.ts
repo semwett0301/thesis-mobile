@@ -13,8 +13,7 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
   contentContainer: {
-    gap: 8,
-    width: "100%",
+    gap: 2,
   },
   distance: {
     color: theme.field_color_base,
@@ -22,6 +21,7 @@ export const styles = StyleSheet.create({
   },
   name: {
     fontSize: theme.button_font_size_sm,
+    width: "100%",
   },
   price: {
     fontSize: theme.title_font_size,

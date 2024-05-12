@@ -13,7 +13,7 @@ export const CitySearch = () => {
   const navigation = useAppNavigation();
 
   return (
-    <Page>
+    <Page mode="safe">
       <SearchCityList
         setCity={(item) => {
           setCity(item);
