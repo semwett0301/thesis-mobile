@@ -182,7 +182,7 @@ export const RouteGenerationForm = ({ disabled = false, onSubmit }: Props) => {
       <View style={styles.buttonWrapper}>
         <Button
           onPress={handleSubmit(onSubmit)}
-          disabled={!isValid && disabled}
+          disabled={!isValid || disabled}
           style={styles.button}
           type="primary"
         >

@@ -2,11 +2,11 @@ import { Flex } from "@ant-design/react-native";
 import { Icon, Image } from "@rneui/base";
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { theme } from "shared/theme";
 import { Transport } from "shared/types/api/Transport";
 import { CustomText } from "shared/ui/atoms";
 import { openLink } from "shared/utils/link";
 
-import { theme } from "../../../../shared/theme";
 import { styles } from "./styles";
 
 interface Props {
