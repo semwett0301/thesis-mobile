@@ -6,7 +6,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Transport } from "shared/types/api/Transport";
 import { AIRPLANE_LABEL, RAILWAY_LABEL } from "widgets/transport-route/config";
 
-import { getAirplaneTickets, getRailwayTickets } from "../../api";
+import { getTickets } from "../../api";
 import { TransportRequest } from "../../types";
 
 export const TransportRoute = () => {
@@ -19,7 +19,7 @@ export const TransportRoute = () => {
 
   const [railwayLoaded, setRailwayLoaded] = useState(false);
 
-  const requestParams = useMemo<TransportRequest | null>(
+  const requestParams = useMemo<Omit<TransportRequest, "type"> | null>(
     () =>
       route
         ? {
@@ -35,7 +35,10 @@ export const TransportRoute = () => {
   useEffect(() => {
     const fetchAirplaneTickets = async () => {
       if (requestParams) {
-        const { data } = await getAirplaneTickets(requestParams);
+        const { data } = await getTickets({
+          type: "airplane",
+          ...requestParams,
+        });
         setAirplaneTickets(data);
       }
     };
@@ -46,7 +49,10 @@ export const TransportRoute = () => {
   useEffect(() => {
     const fetchRailwayTickets = async () => {
       if (requestParams) {
-        const { data } = await getRailwayTickets(requestParams);
+        const { data } = await getTickets({
+          type: "railway",
+          ...requestParams,
+        });
         setRailwayTickets(data);
         setRailwayLoaded(true);
       }
