@@ -1,7 +1,4 @@
-import { Id } from "./Id";
-
 export interface Transport {
-  id: Id;
   logo_url: string;
   price: number;
   source: string;
