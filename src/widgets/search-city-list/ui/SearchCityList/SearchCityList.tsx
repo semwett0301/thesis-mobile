@@ -65,6 +65,7 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
       <FlatList
         onEndReached={() => loadList(currentPage + 1)}
         onEndReachedThreshold={0.8}
+        keyExtractor={(item) => item.iata}
         ListFooterComponent={
           currentPage <= total ? (
             <ActivityIndicator
@@ -93,7 +94,7 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
                     fontSize: theme.button_font_size,
                   }}
                 >
-                  {item.title}
+                  {item.name}
                 </CustomText>
               </Flex>
             </TouchableOpacity>

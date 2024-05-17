@@ -23,7 +23,7 @@ export const RouteHistoryCard = ({ data, onPress }: Props) => {
         {toDay(new Date(data.start_date))}-{toDay(new Date(data.end_date))}
       </CustomText>
       <CustomText style={styles.cityText}>
-        {data.start_city.title}-{data.end_city.title}
+        {data.start_city.name}-{data.end_city.name}
       </CustomText>
     </Flex>
   );

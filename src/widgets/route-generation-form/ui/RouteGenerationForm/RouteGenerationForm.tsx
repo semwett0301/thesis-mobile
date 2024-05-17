@@ -57,7 +57,7 @@ export const RouteGenerationForm = ({ disabled = false, onSubmit }: Props) => {
                 style={styles.selectItem}
                 onPress={() => chooseCity("Откуда", onChange)}
               >
-                {value?.title ?? config.from_label}
+                {value?.name ?? config.from_label}
               </SelectItem>
             )}
             name="start_city"
@@ -74,7 +74,7 @@ export const RouteGenerationForm = ({ disabled = false, onSubmit }: Props) => {
                   chooseCity("Куда", onChange);
                 }}
               >
-                {value?.title ?? config.to_label}
+                {value?.name ?? config.to_label}
               </SelectItem>
             )}
             name="end_city"
