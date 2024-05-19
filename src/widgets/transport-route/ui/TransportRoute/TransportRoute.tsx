@@ -23,9 +23,10 @@ export const TransportRoute = () => {
     () =>
       route
         ? {
-            city: route?.end_city,
+            end_city: route?.end_city,
             end_date: route?.end_date,
             max_price: route?.transport_price,
+            start_city: route?.start_city,
             start_date: route?.start_date,
           }
         : null,

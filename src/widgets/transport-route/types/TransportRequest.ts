@@ -6,5 +6,6 @@ export interface TransportRequest {
   start_date: TDateISO;
   end_date: TDateISO;
   max_price: number;
-  city: City;
+  start_city: City;
+  end_city: City;
 }
