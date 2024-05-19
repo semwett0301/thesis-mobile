@@ -3,7 +3,7 @@ import { Id } from "./Id";
 import { TDateISO } from "./IsoDateTime";
 
 export interface RoutePoint {
-  id: Id;
+  id: Id | null;
   name: string;
   description: string;
   coords: Coords;

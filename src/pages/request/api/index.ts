@@ -8,7 +8,7 @@ import { BASE_ROUTE_URL } from "../config";
 export const createRoute = async (form: RouteRequest) => {
   const request = await api();
   return request.post<RouteRequest, AxiosResponse<Route>>(
-    `${BASE_ROUTE_URL}/`,
+    `${BASE_ROUTE_URL}`,
     form,
   );
 };

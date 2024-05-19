@@ -27,7 +27,7 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
 
   const [isFirstPageLoaded, setIsFirstPageLoaded] = useState(false);
 
-  const [debouncedSearch] = useDebounce(search, 1000);
+  const [debouncedSearch] = useDebounce(search, 300);
 
   const loadList = async (page: number) => {
     if (page <= total) {
@@ -39,16 +39,16 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
 
       if (!isFirstPageLoaded) setIsFirstPageLoaded(true);
 
-      setCurrentPage(data.page);
+      setCurrentPage(page + 1);
       setTotal(data.totalPages);
-      setCities((currentCities) => [...currentCities, ...data.items]);
+      setCities([...cities, ...data.content]);
     }
   };
 
   useEffect(() => {
     if (isFirstPageLoaded) {
-      setCities(() => []);
-      loadList(1).catch((e) => console.error(e));
+      setCities([]);
+      setCurrentPage(0);
     }
   }, [debouncedSearch]);
 
@@ -63,11 +63,11 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
         />
       </Flex>
       <FlatList
-        onEndReached={() => loadList(currentPage + 1)}
-        onEndReachedThreshold={0.8}
+        onEndReached={() => loadList(currentPage)}
+        onEndReachedThreshold={0.5}
         keyExtractor={(item) => item.iata}
         ListFooterComponent={
-          currentPage <= total ? (
+          currentPage < total ? (
             <ActivityIndicator
               style={{ marginTop: 5 }}
               color={theme.brand_primary}

@@ -7,7 +7,7 @@ import { CitiesRequest, CitiesResponse } from "../types";
 export const getCities = async (params: CitiesRequest) => {
   const request = await api();
   return request.get<CitiesRequest, AxiosResponse<CitiesResponse>>(
-    `${BASE_CITIES_URL}/`,
+    `${BASE_CITIES_URL}`,
     {
       params,
     },

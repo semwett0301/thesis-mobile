@@ -1,8 +1,10 @@
 import { City } from "shared/types/api/City";
 
 export interface CitiesResponse {
-  page: number;
-  page_size: number;
+  pageable: {
+    pageSize: number;
+    pageNumber: number;
+  };
   totalPages: number;
-  items: City[];
+  content: City[];
 }

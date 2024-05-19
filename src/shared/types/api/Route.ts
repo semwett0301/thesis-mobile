@@ -4,7 +4,7 @@ import { TDateISO } from "./IsoDateTime";
 import { RoutePoint } from "./RoutePoint";
 
 export interface Route {
-  id: Id;
+  id: Id | null;
   route_points: RoutePoint[];
   start_city: City;
   end_city: City;

@@ -11,10 +11,10 @@ import { ROUTE_DESCRIPTION_LABEL, ROUTE_MAP_LABEL } from "../../config";
 export const RoutePointInfo = () => {
   const { route } = useRoute();
   const {
-    params: { id },
+    params: { name },
   } = useAppRoute<PAGES.ROUTE_POINT_INFO>();
 
-  const data = route?.route_points.find((point) => point.id === id);
+  const data = route?.route_points.find((point) => point.name === name);
 
   return (
     <RouteExistenceChecker>

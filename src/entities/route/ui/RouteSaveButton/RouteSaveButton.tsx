@@ -10,7 +10,7 @@ export const RouteSaveButton = () => {
   const { route, setRoute } = useRoute();
 
   const save = async () => {
-    if (route) {
+    if (route?.id) {
       const { data } = await saveRoute(route.id);
       setRoute(data);
     }

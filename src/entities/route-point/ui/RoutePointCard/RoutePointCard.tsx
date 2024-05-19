@@ -20,7 +20,7 @@ export const RoutePointCard = ({ data }: Props) => {
 
   const toRoutePointInfo = () => {
     navigation.navigate(PAGES.ROUTE_POINT_INFO, {
-      id: data.id,
+      name: data.name,
     });
   };
 

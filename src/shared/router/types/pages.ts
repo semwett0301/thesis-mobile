@@ -1,5 +1,4 @@
 import { City } from "../../types/api/City";
-import { Id } from "../../types/api/Id";
 
 export enum PAGES {
   LOGIN = "LOGIN",
@@ -18,7 +17,7 @@ export type ParamList = {
   [PAGES.ROUTES]: undefined;
   [PAGES.ROUTE_INFO]: undefined;
   [PAGES.ROUTE_POINT_INFO]: {
-    id: Id;
+    name: string;
   };
   [PAGES.CITY_SEARCH]: {
     title: string;
