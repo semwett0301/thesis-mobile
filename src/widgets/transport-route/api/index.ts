@@ -9,6 +9,8 @@ export const getTickets = async (params: TransportRequest) => {
   const request = await api();
   return request.get<TransportRequest, AxiosResponse<Transport[]>>(
     `${BASE_TRANSPORT_URL}`,
-    { params },
+    {
+      params,
+    },
   );
 };

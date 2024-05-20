@@ -1,9 +1,8 @@
 import { TransportCard } from "entities/transport";
 import React from "react";
+import { Transport } from "shared/types/api/Transport";
 import { CustomSkeleton } from "shared/ui/atoms";
 import { Section } from "shared/ui/layouts";
-
-import { Transport } from "../../../../shared/types/api/Transport";
 
 interface Props {
   label?: string;
