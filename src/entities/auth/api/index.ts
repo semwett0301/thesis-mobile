@@ -1,13 +1,14 @@
 import { AxiosResponse } from "axios";
 import { api } from "shared/api/api";
+import { Auth } from "shared/types/api/Auth";
+import { User } from "shared/types/api/User";
 
-import { Auth } from "../../../shared/types/api/Auth";
 import { BASE_AUTH_URL } from "../config";
 import { AuthRequest } from "../types";
 
 export const getMe = async () => {
   const request = await api();
-  return request.get<Auth>(`${BASE_AUTH_URL}/me`);
+  return request.get<User>(`${BASE_AUTH_URL}/me`);
 };
 
 export const postLogin = async (auth: AuthRequest) => {
