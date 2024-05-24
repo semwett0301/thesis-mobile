@@ -1,4 +1,5 @@
 import axios, { AxiosError } from "axios";
+import * as Application from "expo-application";
 
 import { PAGES } from "../router/types/pages";
 import { navigateOutside } from "../router/utils";
@@ -11,6 +12,9 @@ export const api = async () => {
     baseURL: process.env.EXPO_PUBLIC_API_URL,
     headers: {
       Authorization: `Bearer ${token}`,
+      "X-Finger-Print":
+        (await Application.getAndroidId()) ??
+        (await Application.getIosIdForVendorAsync()),
     },
   });
 

@@ -16,7 +16,10 @@ export const Register = () => {
       <Center>
         <AuthForm
           submitButton={{
-            onSubmit: register,
+            onSubmit: async (auth) => {
+              await register(auth);
+              navigation.goBack();
+            },
             placeholder: "Регистрация",
           }}
           additionalButton={{

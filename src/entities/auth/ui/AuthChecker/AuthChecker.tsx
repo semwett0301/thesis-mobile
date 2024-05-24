@@ -26,7 +26,7 @@ export const AuthChecker = ({
         navigation.dispatch(StackActions.replace(PAGES.REQUEST));
       }
     }
-  }, [isAuth, isAuthLoaded, mode, navigation]);
+  }, [isAuthLoaded]);
 
   return children;
 };
