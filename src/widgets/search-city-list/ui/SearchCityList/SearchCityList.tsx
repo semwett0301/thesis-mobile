@@ -25,32 +25,44 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [total, setTotal] = useState(1);
 
-  const [isFirstPageLoaded, setIsFirstPageLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [debouncedSearch] = useDebounce(search, 300);
 
-  const loadList = async (page: number) => {
-    if (page <= total) {
-      const { data } = await getCities({
-        page,
-        page_size: PAGE_SIZE,
-        search: debouncedSearch,
-      });
+  const loadList = async () => {
+    const {
+      data: { content, totalPages },
+    } = await getCities({
+      page: currentPage,
+      page_size: PAGE_SIZE,
+      search: debouncedSearch,
+    });
 
-      if (!isFirstPageLoaded) setIsFirstPageLoaded(true);
+    if (total !== totalPages) setTotal(totalPages);
+    setCities([...cities, ...content]);
 
-      setCurrentPage(page + 1);
-      setTotal(data.totalPages);
-      setCities([...cities, ...data.content]);
+    setIsLoading(false);
+  };
+
+  const sendRequest = async () => {
+    if (currentPage < total) {
+      setIsLoading(true);
+      await loadList();
+      setCurrentPage((current) => current + 1);
     }
   };
 
   useEffect(() => {
-    if (isFirstPageLoaded) {
-      setCities([]);
-      setCurrentPage(0);
-    }
+    setCities([]);
+    setTotal(1);
+    setCurrentPage(0);
   }, [debouncedSearch]);
+
+  useEffect(() => {
+    if (currentPage === 0 || currentPage === 1) {
+      sendRequest();
+    }
+  }, [currentPage]);
 
   return (
     <View>
@@ -63,11 +75,15 @@ export const SearchCityList = ({ setCity }: SearchListProps) => {
         />
       </Flex>
       <FlatList
-        onEndReached={() => loadList(currentPage)}
-        onEndReachedThreshold={0.5}
+        onEndReachedThreshold={1}
+        onEndReached={() => {
+          if (currentPage !== 0 && currentPage !== 1) {
+            sendRequest();
+          }
+        }}
         keyExtractor={(item) => item.iata}
         ListFooterComponent={
-          currentPage < total ? (
+          isLoading ? (
             <ActivityIndicator
               style={{ marginTop: 5 }}
               color={theme.brand_primary}
