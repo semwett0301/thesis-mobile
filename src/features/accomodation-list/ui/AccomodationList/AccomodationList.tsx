@@ -19,7 +19,7 @@ export const AccomodationList = ({ data, label }: Props) => {
       ) : (
         <CustomCarousel style={styles.carousel}>
           {data.map((transport) => (
-            <AccomodationCard key={transport.id} data={transport} />
+            <AccomodationCard key={transport.name} data={transport} />
           ))}
         </CustomCarousel>
       )}

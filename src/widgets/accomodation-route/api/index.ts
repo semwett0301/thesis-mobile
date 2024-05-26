@@ -8,7 +8,7 @@ import { AccommodationRequest } from "../types";
 export const getAccommodations = async (params: AccommodationRequest) => {
   const request = await api();
   return request.get<AccommodationRequest, AxiosResponse<Accomodation[]>>(
-    `${BASE_ACCOMMODATION_URL}/`,
+    `${BASE_ACCOMMODATION_URL}`,
     {
       params,
     },
