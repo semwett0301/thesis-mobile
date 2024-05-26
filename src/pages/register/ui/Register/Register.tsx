@@ -18,7 +18,7 @@ export const Register = () => {
           submitButton={{
             onSubmit: async (auth) => {
               await register(auth);
-              navigation.goBack();
+              navigation.dispatch(StackActions.replace(PAGES.REQUEST));
             },
             placeholder: "Регистрация",
           }}

@@ -8,6 +8,8 @@ import { getAccessToken } from "../utils/auth";
 export const api = async () => {
   const token = await getAccessToken();
 
+  console.log(token);
+
   const request = axios.create({
     baseURL: process.env.EXPO_PUBLIC_API_URL,
     headers: {
