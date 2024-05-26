@@ -17,19 +17,20 @@ export const TransportRoute = () => {
   const [airplaneTickets, setAirplaneTickets] = useState<Transport[]>([]);
   const [railwayTickets, setRailwayTickets] = useState<Transport[]>([]);
 
+  const [airlineLoaded, setAirlineLoaded] = useState(false);
   const [railwayLoaded, setRailwayLoaded] = useState(false);
 
   const requestParams = useMemo<Omit<TransportRequest, "type"> | null>(
     () =>
       route
         ? {
-            end_city: route?.end_city.name,
-            end_city_iata: route?.end_city.iata,
-            end_date: route?.end_date,
-            max_price: route?.transport_price,
-            start_city: route?.start_city.name,
-            start_city_iata: route?.start_city.iata,
-            start_date: route?.start_date,
+            end_city: route.end_city.name,
+            end_city_iata: route.end_city.iata,
+            end_date: route.end_date,
+            max_price: route.transport_price,
+            start_city: route.start_city.name,
+            start_city_iata: route.start_city.iata,
+            start_date: route.start_date,
           }
         : null,
     [route],
@@ -43,10 +44,14 @@ export const TransportRoute = () => {
           ...requestParams,
         });
         setAirplaneTickets(data);
+        setAirlineLoaded(true);
       }
     };
 
-    if (isFocused) fetchAirplaneTickets().catch((e) => console.error(e));
+    if (isFocused) {
+      setAirlineLoaded(false);
+      fetchAirplaneTickets().catch((e) => console.error(e));
+    }
   }, [isFocused]);
 
   useEffect(() => {
@@ -69,7 +74,9 @@ export const TransportRoute = () => {
 
   return (
     <Flex direction="column">
-      <TransportList data={airplaneTickets} label={AIRPLANE_LABEL} />
+      {!(!airplaneTickets.length && airlineLoaded) && (
+        <TransportList data={airplaneTickets} label={AIRPLANE_LABEL} />
+      )}
       {!(!railwayTickets.length && railwayLoaded) && (
         <TransportList data={railwayTickets} label={RAILWAY_LABEL} />
       )}

@@ -5,6 +5,7 @@ export interface TransportRequest {
   start_date: TDateISO;
   end_date: TDateISO;
   max_price: number;
+  start_city: string;
   start_city_iata: string;
   end_city: string;
   end_city_iata: string;

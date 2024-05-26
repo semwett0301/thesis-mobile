@@ -16,7 +16,7 @@ export const TransportList = ({ data, label }: Props) => {
         <CustomSkeleton height={208} />
       ) : (
         data.map((transport) => (
-          <TransportCard key={transport.link} data={transport} />
+          <TransportCard key={transport.start_city} data={transport} />
         ))
       )}
     </Section>
