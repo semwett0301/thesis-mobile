@@ -1,5 +1,7 @@
 import { Button, Flex, Toast } from "@ant-design/react-native";
-import React from "react";
+import { useIsFocused } from "@react-navigation/core";
+import { StackActions } from "@react-navigation/native";
+import React, { useEffect } from "react";
 import { useAppNavigation } from "shared/router/hooks/useAppNavigation";
 import { PAGES } from "shared/router/types/pages";
 
@@ -13,24 +15,32 @@ export const RouteGetButton = () => {
 
   const navigation = useAppNavigation();
 
+  const isFocused = useIsFocused();
+
   const updateRoute = async () => {
     if (route) {
-      const { data } = await getRoute(route?.id);
-      setRoute(route);
+      const { data } = await getRoute(route.id);
+      setRoute(data);
 
       switch (data.status) {
         case "GENERATED":
-          navigation.navigate(PAGES.ROUTE_INFO);
+          navigation.dispatch(StackActions.replace(PAGES.ROUTE_INFO));
           break;
         case "FAILED":
           Toast.fail("При создании маршрута произошла ошибка");
-          navigation.navigate(PAGES.REQUEST);
+          navigation.goBack();
           break;
         default:
           break;
       }
     }
   };
+
+  useEffect(() => {
+    if (isFocused) {
+      updateRoute();
+    }
+  }, [isFocused]);
 
   return (
     <Flex justify="center" align="center" style={styles.container}>

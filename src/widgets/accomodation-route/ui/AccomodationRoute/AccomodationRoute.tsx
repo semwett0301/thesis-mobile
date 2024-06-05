@@ -16,7 +16,7 @@ export const AccomodationRoute = () => {
     const fetchAccommodation = async () => {
       if (route) {
         const { data } = await getAccommodations({
-          city: route.content.end_city.iata,
+          city_iata: route.content.end_city.iata,
           end_date: route.content.end_date,
           max_price: route.content.accommodation_price,
           start_date: route.content.start_date,

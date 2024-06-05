@@ -1,5 +1,5 @@
 import { Button, DatePicker, Flex } from "@ant-design/react-native";
-import { addDays, compareAsc, compareDesc } from "date-fns";
+import { addDays, compareAsc, compareDesc, differenceInDays } from "date-fns";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
@@ -92,7 +92,10 @@ export const RouteGenerationForm = ({ disabled = false, onSubmit }: Props) => {
               <DatePicker
                 value={value ? new Date(value) : undefined}
                 onChange={(date) => {
-                  if (endDate && compareAsc(date, endDate) >= 0)
+                  if (
+                    (endDate && compareAsc(date, endDate) >= 0) ||
+                    differenceInDays(date, endDate) > 7
+                  )
                     resetField("end_date");
                   onChange(date.toISOString());
                 }}
@@ -113,7 +116,10 @@ export const RouteGenerationForm = ({ disabled = false, onSubmit }: Props) => {
             render={({ field: { onChange, value } }) => (
               <DatePicker
                 onChange={(date) => {
-                  if (startDate && compareDesc(date, startDate) >= 0)
+                  if (
+                    (startDate && compareDesc(date, startDate) >= 0) ||
+                    differenceInDays(date, startDate) > 7
+                  )
                     resetField("start_date");
                   onChange(date.toISOString());
                 }}
