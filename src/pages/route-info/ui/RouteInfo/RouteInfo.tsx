@@ -14,7 +14,7 @@ export const RouteInfo = () => {
   const { route } = useRoute();
   const { isAuth } = useAuth();
 
-  const coords = route?.route_points.map((point) => point.coords) ?? [];
+  const coords = route?.content.route_points.map((point) => point.coords) ?? [];
 
   return (
     <RouteExistenceChecker>
@@ -25,7 +25,7 @@ export const RouteInfo = () => {
         <Section label="Карта">
           <Map mode="route" coords={coords} />
         </Section>
-        {isAuth && !route?.is_saved && <RouteSaveButton />}
+        {isAuth && route?.status !== "SAVED" && <RouteSaveButton />}
       </Page>
     </RouteExistenceChecker>
   );

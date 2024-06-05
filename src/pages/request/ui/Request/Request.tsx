@@ -22,7 +22,7 @@ export const Request = () => {
     setIsLoading(true);
     const { data } = await createRoute(form);
     setRoute(data);
-    navigation.navigate(PAGES.ROUTE_INFO);
+    navigation.navigate(PAGES.GENERATING_QUEUE);
     setIsLoading(false);
   };
 

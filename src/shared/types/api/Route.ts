@@ -3,8 +3,14 @@ import { Id } from "./Id";
 import { TDateISO } from "./IsoDateTime";
 import { RoutePoint } from "./RoutePoint";
 
-export interface Route {
-  id: Id | null;
+export type RouteStatus =
+  | "CREATED"
+  | "PENDING"
+  | "GENERATED"
+  | "FAILED"
+  | "SAVED";
+
+export interface RouteContent {
   route_points: RoutePoint[];
   start_city: City;
   end_city: City;
@@ -12,6 +18,12 @@ export interface Route {
   end_date: TDateISO;
   transport_price: number;
   accommodation_price: number;
-  is_saved: boolean;
   additional_information?: string;
+}
+
+export interface Route {
+  id: Id;
+  queue_length: number;
+  status: RouteStatus;
+  content: RouteContent;
 }

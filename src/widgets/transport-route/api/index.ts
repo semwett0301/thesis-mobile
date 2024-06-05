@@ -8,7 +8,7 @@ import { TransportRequest } from "../types";
 export const getTickets = async (params: TransportRequest) => {
   const request = await api();
   return request.get<TransportRequest, AxiosResponse<Transport[]>>(
-    `${BASE_TRANSPORT_URL}`,
+    `${BASE_TRANSPORT_URL}/${params.type}`,
     {
       params,
     },

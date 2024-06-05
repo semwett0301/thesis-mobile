@@ -8,6 +8,10 @@ import { AuthProvider } from "entities/auth";
 import { RouteProvider } from "entities/route";
 import { useFonts } from "expo-font";
 import { CitySearch } from "pages/city-search";
+import {
+  GENERATING_QUEUE_TITLE,
+  GeneratingQueue,
+} from "pages/generating-queue";
 import { Login, LOGIN_PAGE_TITLE } from "pages/login";
 import { Register, REGISTER_PAGE_TITLE } from "pages/register";
 import { Request, REQUEST_PAGE_TITLE } from "pages/request";
@@ -75,6 +79,13 @@ const App = () => {
                 component={RoutePointInfo}
                 options={{
                   title: ROUTE_POINT_INFO_TITLE,
+                }}
+              />
+              <Screen
+                name={PAGES.GENERATING_QUEUE}
+                component={GeneratingQueue}
+                options={{
+                  title: GENERATING_QUEUE_TITLE,
                 }}
               />
               <Screen

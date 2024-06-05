@@ -12,3 +12,9 @@ export const saveRoute = async (id: Id) => {
     `${BASE_ROUTES_URL}/${id}/save`,
   );
 };
+
+export const getRoute = async (id: Id) => {
+  const request = await api();
+
+  return request.get<never, AxiosResponse<Route>>(`${BASE_ROUTES_URL}/${id}`);
+};

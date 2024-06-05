@@ -8,6 +8,7 @@ export enum PAGES {
   ROUTES = "ROUTES",
   ROUTE_INFO = "ROUTE_INFO",
   ROUTE_POINT_INFO = "ROUTE_POINT_INFO",
+  GENERATING_QUEUE = "GENERATING_QUEUE",
 }
 
 export type ParamList = {
@@ -16,6 +17,7 @@ export type ParamList = {
   [PAGES.REQUEST]: undefined;
   [PAGES.ROUTES]: undefined;
   [PAGES.ROUTE_INFO]: undefined;
+  [PAGES.GENERATING_QUEUE]: undefined;
   [PAGES.ROUTE_POINT_INFO]: {
     name: string;
   };

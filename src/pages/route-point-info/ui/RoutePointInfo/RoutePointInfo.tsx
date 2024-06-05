@@ -14,7 +14,7 @@ export const RoutePointInfo = () => {
     params: { name },
   } = useAppRoute<PAGES.ROUTE_POINT_INFO>();
 
-  const data = route?.route_points.find((point) => point.name === name);
+  const data = route?.content.route_points.find((point) => point.name === name);
 
   return (
     <RouteExistenceChecker>
