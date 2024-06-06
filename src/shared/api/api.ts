@@ -1,8 +1,6 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import * as Application from "expo-application";
 
-import { PAGES } from "../router/types/pages";
-import { navigateOutside } from "../router/utils";
 import { getAccessToken } from "../utils/auth";
 
 export const api = async () => {
@@ -10,7 +8,7 @@ export const api = async () => {
 
   console.log(token);
 
-  const request = axios.create({
+  return axios.create({
     baseURL: process.env.EXPO_PUBLIC_API_URL,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -19,20 +17,4 @@ export const api = async () => {
         (await Application.getIosIdForVendorAsync()),
     },
   });
-
-  request.interceptors.response.use(
-    (response) => response,
-    (error: AxiosError) => {
-      switch (error.response?.status) {
-        case 401:
-          navigateOutside<PAGES.REQUEST>(PAGES.REQUEST, undefined);
-          break;
-        default:
-      }
-
-      return Promise.reject(error);
-    },
-  );
-
-  return request;
 };
