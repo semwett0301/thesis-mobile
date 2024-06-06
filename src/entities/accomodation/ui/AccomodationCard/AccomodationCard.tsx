@@ -19,8 +19,14 @@ export const AccomodationCard = ({ data }: Props) => {
         <CustomText style={styles.source}>По данным {data.source}</CustomText>
       </Flex>
       <Flex justify="between" align="center" style={styles.subContainer}>
-        <Flex direction="column" style={styles.contentContainer}>
-          <CustomText style={styles.name}>{data.name}</CustomText>
+        <Flex direction="column" align="start" style={styles.contentContainer}>
+          <CustomText
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={styles.name}
+          >
+            {data.name}
+          </CustomText>
           <CustomText style={styles.distance}>
             {data.center_distance}км от центра
           </CustomText>

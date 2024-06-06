@@ -6,6 +6,7 @@ export const CustomText = ({
   children,
   inverse = false,
   style,
+  ...rest
 }: TextProps & {
   inverse?: boolean;
 }) => {
@@ -16,6 +17,7 @@ export const CustomText = ({
         // fontFamily: theme.main_font,
         ...(style as object),
       }}
+      {...rest}
     >
       {children}
     </Text>
